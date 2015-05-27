@@ -1,0 +1,348 @@
+{
+    "num_results": 14,
+    "users": [
+        {
+            "id": 1250187913,
+            "verified": false,
+            "is_dm_able": false,
+            "name": "Backbone.js",
+            "screen_name": "Backbonejs_",
+            "profile_image_url": "http://pbs.twimg.com/profile_images/3350937627/db17aea00972dc20909b8095e8a4fc1a_normal.jpeg",
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/3350937627/db17aea00972dc20909b8095e8a4fc1a_normal.jpeg",
+            "location": "World Wide Web",
+            "rounded_score": 6776,
+            "social_proof": 0,
+            "connecting_user_count": 0,
+            "connecting_user_ids": [],
+            "social_proofs_ordered": [],
+            "tokens": [
+                {
+                    "token": "backbonejs_"
+                },
+                {
+                    "token": "@backbonejs_"
+                },
+                {
+                    "token": "backbonejs"
+                },
+                {
+                    "token": "backbone.js"
+                }
+            ],
+            "inline": false
+        },
+        {
+            "id": 1227104845,
+            "verified": false,
+            "is_dm_able": false,
+            "name": "{fr} Backbone.js",
+            "screen_name": "backbonejsfr",
+            "profile_image_url": "http://pbs.twimg.com/profile_images/449496410782572544/ACdcrSh0_normal.png",
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/449496410782572544/ACdcrSh0_normal.png",
+            "location": "France",
+            "rounded_score": 3400,
+            "social_proof": 0,
+            "connecting_user_count": 0,
+            "connecting_user_ids": [],
+            "social_proofs_ordered": [],
+            "tokens": [
+                {
+                    "token": "backbonejsfr"
+                },
+                {
+                    "token": "@backbonejsfr"
+                },
+                {
+                    "token": "{fr}"
+                },
+                {
+                    "token": "backbone.js"
+                }
+            ],
+            "inline": false
+        },
+        {
+            "id": 378656538,
+            "verified": false,
+            "is_dm_able": false,
+            "name": "Backbone.js Training",
+            "screen_name": "BackboneJsClass",
+            "profile_image_url": "http://pbs.twimg.com/profile_images/1738383141/backbone_normal.png",
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/1738383141/backbone_normal.png",
+            "location": "",
+            "rounded_score": 3400,
+            "social_proof": 0,
+            "connecting_user_count": 0,
+            "connecting_user_ids": [],
+            "social_proofs_ordered": [],
+            "tokens": [
+                {
+                    "token": "backbonejsclass"
+                },
+                {
+                    "token": "@backbonejsclass"
+                },
+                {
+                    "token": "backbone.js"
+                },
+                {
+                    "token": "training"
+                }
+            ],
+            "inline": false
+        },
+        {
+            "id": 3053911585,
+            "verified": false,
+            "is_dm_able": false,
+            "name": "BackboneJScript",
+            "screen_name": "BackboneJScript",
+            "profile_image_url": "http://pbs.twimg.com/profile_images/572505018297638912/dczkv9ll_normal.png",
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/572505018297638912/dczkv9ll_normal.png",
+            "location": "Everywhere",
+            "rounded_score": 2900,
+            "social_proof": 0,
+            "connecting_user_count": 0,
+            "connecting_user_ids": [],
+            "social_proofs_ordered": [],
+            "tokens": [
+                {
+                    "token": "backbonejscript"
+                },
+                {
+                    "token": "@backbonejscript"
+                }
+            ],
+            "inline": false
+        },
+        {
+            "id": 444264622,
+            "verified": false,
+            "is_dm_able": false,
+            "name": "backbonejs",
+            "screen_name": "backbonejs",
+            "profile_image_url": "http://abs.twimg.com/sticky/default_profile_images/default_profile_4_normal.png",
+            "profile_image_url_https": "https://abs.twimg.com/sticky/default_profile_images/default_profile_4_normal.png",
+            "location": "",
+            "rounded_score": 1848,
+            "social_proof": 0,
+            "connecting_user_count": 0,
+            "connecting_user_ids": [],
+            "social_proofs_ordered": [],
+            "tokens": [
+                {
+                    "token": "backbonejs"
+                },
+                {
+                    "token": "@backbonejs"
+                }
+            ],
+            "inline": false
+        },
+        {
+            "id": 3155251565,
+            "verified": false,
+            "is_dm_able": false,
+            "name": "Backbone.JS Paris",
+            "screen_name": "backbonejsparis",
+            "profile_image_url": "http://pbs.twimg.com/profile_images/586771579058659328/1JcTrW8n_normal.png",
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/586771579058659328/1JcTrW8n_normal.png",
+            "location": "Paris",
+            "rounded_score": 1260,
+            "social_proof": 0,
+            "connecting_user_count": 0,
+            "connecting_user_ids": [],
+            "social_proofs_ordered": [],
+            "tokens": [
+                {
+                    "token": "backbonejsparis"
+                },
+                {
+                    "token": "@backbonejsparis"
+                },
+                {
+                    "token": "backbone.js"
+                },
+                {
+                    "token": "paris"
+                }
+            ],
+            "inline": false
+        },
+        {
+            "id": 1558626409,
+            "verified": false,
+            "is_dm_able": false,
+            "name": "BackboneJS Colombia",
+            "screen_name": "BackboneJSCol",
+            "profile_image_url": "http://pbs.twimg.com/profile_images/378800000069146650/ec90e582a3f3d3244e59bb94d830792f_normal.png",
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/378800000069146650/ec90e582a3f3d3244e59bb94d830792f_normal.png",
+            "location": "",
+            "rounded_score": 1008,
+            "social_proof": 0,
+            "connecting_user_count": 0,
+            "connecting_user_ids": [],
+            "social_proofs_ordered": [],
+            "tokens": [
+                {
+                    "token": "backbonejscol"
+                },
+                {
+                    "token": "@backbonejscol"
+                },
+                {
+                    "token": "backbonejs"
+                },
+                {
+                    "token": "colombia"
+                }
+            ],
+            "inline": false
+        },
+        {
+            "id": 504841365,
+            "verified": false,
+            "is_dm_able": false,
+            "name": "backboneJS",
+            "screen_name": "_berdia",
+            "profile_image_url": "http://pbs.twimg.com/profile_images/1855793892/321365_235588396493204_100001261360201_706793_1887639140_n_normal.jpg",
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/1855793892/321365_235588396493204_100001261360201_706793_1887639140_n_normal.jpg",
+            "location": "tbilisi, bio",
+            "rounded_score": 945,
+            "social_proof": 0,
+            "connecting_user_count": 0,
+            "connecting_user_ids": [],
+            "social_proofs_ordered": [],
+            "tokens": [
+                {
+                    "token": "_berdia"
+                },
+                {
+                    "token": "@_berdia"
+                },
+                {
+                    "token": ""
+                },
+                {
+                    "token": "berdia"
+                },
+                {
+                    "token": "backbonejs"
+                }
+            ],
+            "inline": false
+        },
+        {
+            "id": 2341844931,
+            "verified": false,
+            "is_dm_able": false,
+            "name": "BackboneJS Fans",
+            "screen_name": "BackboneJSFans",
+            "profile_image_url": "http://abs.twimg.com/sticky/default_profile_images/default_profile_6_normal.png",
+            "profile_image_url_https": "https://abs.twimg.com/sticky/default_profile_images/default_profile_6_normal.png",
+            "location": "",
+            "rounded_score": 661,
+            "social_proof": 0,
+            "connecting_user_count": 0,
+            "connecting_user_ids": [],
+            "social_proofs_ordered": [],
+            "tokens": [
+                {
+                    "token": "backbonejsfans"
+                },
+                {
+                    "token": "@backbonejsfans"
+                },
+                {
+                    "token": "backbonejs"
+                },
+                {
+                    "token": "fans"
+                }
+            ],
+            "inline": false
+        },
+        {
+            "id": 1376672515,
+            "verified": false,
+            "is_dm_able": false,
+            "name": "Backbonejs Holland",
+            "screen_name": "BackboneJs_nl",
+            "profile_image_url": "http://abs.twimg.com/sticky/default_profile_images/default_profile_1_normal.png",
+            "profile_image_url_https": "https://abs.twimg.com/sticky/default_profile_images/default_profile_1_normal.png",
+            "location": "",
+            "rounded_score": 661,
+            "social_proof": 0,
+            "connecting_user_count": 0,
+            "connecting_user_ids": [],
+            "social_proofs_ordered": [],
+            "tokens": [
+                {
+                    "token": "backbonejs_nl"
+                },
+                {
+                    "token": "@backbonejs_nl"
+                },
+                {
+                    "token": "backbonejs"
+                },
+                {
+                    "token": "nl"
+                },
+                {
+                    "token": "holland"
+                }
+            ],
+            "inline": false
+        }
+    ],
+    "topics": [
+        {
+            "topic": "backbonejs",
+            "rounded_score": 600,
+            "tokens": [
+                {
+                    "token": "backbonejs"
+                }
+            ],
+            "inline": false
+        },
+        {
+            "topic": "backbonejs",
+            "filter": "images",
+            "rounded_score": -1000,
+            "tokens": [
+                {
+                    "token": "backbonejs"
+                }
+            ],
+            "inline": false
+        },
+        {
+            "topic": "backbonejs",
+            "filter": "news",
+            "rounded_score": -1000,
+            "tokens": [
+                {
+                    "token": "backbonejs"
+                }
+            ],
+            "inline": false
+        },
+        {
+            "topic": "backbonejs",
+            "filter": "videos",
+            "rounded_score": -1000,
+            "tokens": [
+                {
+                    "token": "backbonejs"
+                }
+            ],
+            "inline": false
+        }
+    ],
+    "oneclick": [],
+    "hashtags": [],
+    "completed_in": 0.005,
+    "query": "backbonejs"
+}

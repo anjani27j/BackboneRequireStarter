@@ -1,0 +1,16 @@
+<ul class="list-group">
+{{#each users}}
+<li class="list-group-item">
+	<div class="media">
+		<a class="pull-left" href="#">
+			<img class="media-object" src="{{this.profile_image_url}}">
+        </a>
+        <div class="media-body">
+            <h4 class="media-heading">{{this.name}} ({{this.screen_name}})</h4>
+            {{#if this.location}}<h5>Location : {{this.location}}</h5>{{/if}}
+            <h5>Score : {{this.rounded_score}}</h5>
+        </div>
+    </div>
+</li>
+{{/each}}
+</ul>
