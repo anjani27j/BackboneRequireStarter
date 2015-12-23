@@ -3,7 +3,6 @@ define(['jquery', 'backbone', 'handlebars', 'collections/tweet', 'text!templates
    var HomeView = Backbone.View.extend({
       
       //el: '#main',
-
       events: {
       },
 
