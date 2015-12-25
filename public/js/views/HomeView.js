@@ -1,11 +1,9 @@
 define(['jquery', 'backbone', 'handlebars', 'collections/tweet', 'text!templates/search.handlebars'], function($, Backbone, Handlebars, Tweets, SearchTemplate) {
 
    var HomeView = Backbone.View.extend({
-      
       //el: '#main',
       events: {
       },
-
       initialize: function() {
          this.template = Handlebars.compile(SearchTemplate);
          this.collection = new Tweets();
@@ -17,7 +15,6 @@ define(['jquery', 'backbone', 'handlebars', 'collections/tweet', 'text!templates
             }
          });
       },
-
       render: function() {
          this.$el.html(this.template(this.collection.toJSON()[0]));
          return this;
