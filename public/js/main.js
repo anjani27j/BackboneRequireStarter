@@ -8,7 +8,8 @@ require.config({
 		bootstrap : '../bower_components/bootstrap/bootstrap.min',
 		text : '../bower_components/requirejs-text/text',
 		templates : '../templates',
-		datetimepicker: '../bower_components/datetimepicker/jquery.datetimepicker'
+		datetimepicker: '../bower_components/datetimepicker/jquery.datetimepicker',
+		globalHandlebarsHelper: 'GlobalHandlebarsHelper'
 	}
 });
 

@@ -1,6 +1,6 @@
 define([
-   'jquery','backbone','handlebars','models/adminDashboard','text!templates/admin/adminDashboard.handlebars'
-   ], function($, Backbone, Handlebars,AdminDashboardModel,AdminDashboardTemplate) {
+   'jquery','backbone','handlebars','globalHandlebarsHelper','models/adminDashboard','text!templates/admin/adminDashboard.handlebars'
+   ], function($, Backbone, Handlebars, GlobalHandlebarsHelper, AdminDashboardModel, AdminDashboardTemplate) {
    var AdminDashboardView = Backbone.View.extend({
       el: '#main-container',
       events: {
