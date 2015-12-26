@@ -9,6 +9,7 @@
     "requirejs": "~2.1.14",
     "requirejs-domready": "2.0.1",
     "requirejs-text": "2.0.12",
-    "handlebars": "3.0.0"
+    "handlebars": "3.0.0",
+    "datetimepicker": "~2.4.5"
   }
 }

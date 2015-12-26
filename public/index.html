@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-
   <title>Car Reservation System</title>
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/bower_components/datetimepicker/jquery.datetimepicker.css">
 </head>
 <body>
  <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -34,22 +34,9 @@
   </div>
 </nav>
 <div class="container" id="main-container">
-  <div class="blog-header">
-    <h1 class="blog-title">Car Reservation System</h1>
-    <p class="lead blog-description">Search and find car.</p>
-  </div>
-  <div class="row">
-    <div class="col-md-6" id="main"></div>
-    <div class="col-md-6">
-      <div class="panel panel-default">
-        <div class="panel-heading">Panel heading without title</div>
-        <div class="panel-body">
-          Panel content
-        </div>
-      </div>
-    </div>
-  </div>
+  
 </div>
 <script data-main="/js/main" src="bower_components/requirejs/require.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC1gYo8w7YwaDVlrWkmh_Wc52yMym_tjM&libraries=places&sensor=true"></script>
 </body>
 </html>
