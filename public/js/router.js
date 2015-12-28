@@ -2,6 +2,7 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 	var Router = Backbone.Router.extend({
 		routes : {
 			'' : 'showSearch',
+			'searchResult' : 'showSearchResult',
 			'dashboard' : 'showAdminDashboard'
 		},
 		initialize : function() {
@@ -15,6 +16,13 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 			require(['views/customer/mainSearchView'], function(MainSearchView) {
 				var mainSearchView = new MainSearchView();
 				mainSearchView.render();
+			})
+		},
+		showSearchResult : function() {
+			var self = this;
+			require(['views/customer/searchResultView'], function(SearchResultView) {
+				var searchResultView = new SearchResultView();
+				searchResultView.render();
 			})
 		},
 		//all admin route callbacks go here

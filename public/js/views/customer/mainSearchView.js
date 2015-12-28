@@ -9,13 +9,19 @@ define([
    var mainSearchView = Backbone.View.extend({
       el: '#main-container',
       events: {
-         'change #selectService' : 'selectServiceHandler' 
+         'change #selectService' : 'selectServiceHandler',
+         'click #newCarSearch' : 'newCarSearchHandler'
       },
       initialize: function() {
          this.template = Handlebars.compile(SearchTemplate);
          this.model = new Search();
+         this.pickupid='pickupAtAuto';
+         this.dropoffid='dropoffAtFixed';
       },
       render: function() {
+         this.$el.removeClass('dashboard');
+         this.$el.addClass('width90');
+         this.$el.addClass('main-container-top-margin');
          this.$el.html(this.template);
          $( "#datepicker" ).datetimepicker({
             format:'m/d/Y H:i'
@@ -25,12 +31,16 @@ define([
       },
       selectServiceHandler: function(event){
          var selectedOption= parseInt($(event.currentTarget)[0].selectedOptions[0].value);
+         this.model.set('car_service_code',selectedOption);
          switch(selectedOption){
             case 1:
                $('.pickup-auto').removeClass('hide');
                $('.dropoff-fixed').removeClass('hide');
                $('.pickup-fixed').addClass('hide');
                $('.dropoff-auto').addClass('hide');
+               $('.roundtrip').addClass('hide');
+               this.pickupid='pickupAtAuto';
+               this.dropoffid='dropoffAtFixed';
                this.initGoogleMap('pickupAtAuto');
                break;
             case 2:
@@ -38,17 +48,45 @@ define([
                $('.dropoff-fixed').addClass('hide');
                $('.pickup-fixed').removeClass('hide');
                $('.dropoff-auto').removeClass('hide');
+               $('.roundtrip').addClass('hide');
+               this.pickupid='pickupAtFixed';
+               this.dropoffid='dropoffAtAuto';
                this.initGoogleMap('dropoffAtAuto');
                break;
             case 3:
+               $('.roundtrip').removeClass('hide');
+               $('.pickup-auto').removeClass('hide');
+               $('.dropoff-fixed').removeClass('hide');
+               $('.pickup-fixed').addClass('hide');
+               $('.dropoff-auto').addClass('hide');
+               $('.return-pickup-auto').addClass('hide');
+               $('.return-dropoff-fixed').addClass('hide');
+               $('.return-pickup-fixed').removeClass('hide');
+               $('.return-dropoff-auto').removeClass('hide');
+               this.pickupid='pickupAtAuto';
+               this.dropoffid='dropoffAtFixed';
+               this.returnPickupid='pickupAtAuto';
+               this.returnDropoffid='dropoffAtFixed';
+               this.initGoogleMap('returnDropoffAtAuto');
                break;
             case 4:
+               $('.roundtrip').removeClass('hide');
+               $('.pickup-auto').addClass('hide');
+               $('.dropoff-fixed').addClass('hide');
+               $('.pickup-fixed').removeClass('hide');
+               $('.dropoff-auto').removeClass('hide');
+               $('.return-pickup-auto').removeClass('hide');
+               $('.return-dropoff-fixed').removeClass('hide');
+               $('.return-pickup-fixed').addClass('hide');
+               $('.return-dropoff-auto').addClass('hide');
+               this.initGoogleMap('returnPickupAtAuto');
                break;
             case 5:
                $('.pickup-auto').removeClass('hide');
                $('.dropoff-fixed').addClass('hide');
                $('.pickup-fixed').addClass('hide');
                $('.dropoff-auto').removeClass('hide');
+               $('.roundtrip').addClass('hide');
                this.initGoogleMap('pickupAtAuto');
                this.initGoogleMap('dropoffAtAuto');
                break;
@@ -57,6 +95,7 @@ define([
                $('.dropoff-fixed').removeClass('hide');
                $('.pickup-fixed').addClass('hide');
                $('.dropoff-auto').addClass('hide');
+               $('.roundtrip').addClass('hide');
                this.initGoogleMap('pickupAtAuto');
                break;
             case 7:
@@ -64,9 +103,22 @@ define([
                $('.dropoff-fixed').addClass('hide');
                $('.pickup-fixed').removeClass('hide');
                $('.dropoff-auto').removeClass('hide');
+               $('.roundtrip').addClass('hide');
                this.initGoogleMap('dropoffAtAuto');
                break;
          }
+      },
+      newCarSearchHandler : function(event){
+         debugger;
+         this.model.set('service_id',$('#selectService')[0].selectedOptions[0].value);
+         this.model.set('num_of_passenger',parseInt($('#passengersCount')[0].selectedOptions[0].value));
+         this.model.set('pickup_date',$('#datepicker').text());
+         this.model.set('pickup_date',$('#datepicker').text());
+         this.model.set('pickup_date',$('#datepicker').text());
+         if($($('#selectService')[0].selectedOptions).attr('type')==='twoway'){
+
+         }
+
       },
       'initGoogleMap' : function(selector){
          if(!!navigator.geolocation) {

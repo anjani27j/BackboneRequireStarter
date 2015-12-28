@@ -8,6 +8,9 @@
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
   color: #555;
+ /* background-color: #ebe8e2;
+  background-image: url("../img/45-degree-fabric-dark.png");*/
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 h1, .h1,
@@ -132,3 +135,16 @@ a {
 .admin-sidebar #dashboard-menu ul.submenu a.active{font-weight:bold;text-shadow:none}
 
 .total-row {text-align: center;padding: 6px 0px;display: block;}
+.dashboard{
+  width:80%;
+  margin-left: 177px;
+  border-left: 1px solid #dae3e9;
+  top: 10%; 
+  position: absolute;
+}
+.width90{
+  width: 90%;
+}
+.main-container-top-margin{
+  margin-top: 62px;
+}

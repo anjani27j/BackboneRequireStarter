@@ -1,22 +1,19 @@
-<div class="blog-header">
-  <h1 class="blog-title">&nbsp;</h1>
-</div>
 <div class="row">
   <div class="col-md-6" id="main">
-    <div class="panel panel-default" style="background:#DFF0D8">
+    <div class="panel panel-default" style="background:#fff">
       <div class="panel-body">
         <form class="form-horizontal">
           <div class="form-group">
             <label for="selectService" class="col-sm-4 control-label">Select service</label>
             <div class="col-sm-8">
               <select id='selectService' class="form-control">
-                <option value="1">To Airport</option>
-                <option value="2">From Airport </option>
-                <option value="3">Airport Roundtrip (to Airport 1st)</option>
-                <option value="4">Airport Roundtrip (From Airport 1st)</option>
-                <option value="5">One-Way Transfer</option>
-                <option value="6">To Train station</option>
-                <option value="7">From Train station</option>
+                <option value="1" type='oneway'>To Airport</option>
+                <option value="2" type='oneway'>From Airport </option>
+                <option value="3" type='twoway'>Airport Roundtrip (to Airport 1st)</option>
+                <option value="4" type='twoway'>Airport Roundtrip (From Airport 1st)</option>
+                <option value="5" type='oneway'>One-Way Transfer</option>
+                <option value="6" type='oneway'>To Train station</option>
+                <option value="7" type='oneway'>From Train station</option>
               </select>
             </div>
           </div>
@@ -49,13 +46,17 @@
           <div class="form-group pickup-fixed hide">
             <label for="pickupAtFixed" class="col-sm-4 control-label">Pickup At</label>
             <div class="col-sm-8">
-               <input type="text" id="pickupAtFixed" class="form-control">
+               <select id="pickupAtFixed" class="form-control">
+                  <option></option>
+               </select>
             </div>
           </div>
           <div class="form-group dropoff-fixed">
             <label for="dropoffAtFixed" class="col-sm-4 control-label">Dropoff At</label>
             <div class="col-sm-8">
-               <input type="text" id="dropoffAtFixed" class="form-control">
+               <select id="dropoffAtFixed" class="form-control">
+                  <option></option>
+               </select>
             </div>
           </div>
           <div class="form-group dropoff-auto hide">
@@ -65,45 +66,50 @@
             </div>
           </div>
 
-          <div class="form-group roundtrip">
-            <label for="returnDatepicker" class="col-sm-4 control-label">Pickup time</label>
+          <hr class="roundtrip hide" style="border-top: 1px solid #CCC;"/>
+          <div class="form-group roundtrip hide">
+            <label for="returnDatepicker" class="col-sm-4 control-label">Return Pickup time</label>
             <div class="col-sm-8">
               <input type="text" id="returnDatepicker" class="form-control">
             </div>
           </div>
-          <div class="form-group return-pickup-auto roundtrip">
-            <label for="returnPickupAtAuto" class="col-sm-4 control-label">Pickup At</label>
+          <div class="form-group return-pickup-auto roundtrip hide">
+            <label for="returnPickupAtAuto" class="col-sm-4 control-label">Return Pickup At</label>
             <div class="col-sm-8">
                <input type="text" id="returnPickupAtAuto" class="form-control">
             </div>
           </div>
           <div class="form-group return-pickup-fixed hide roundtrip">
-            <label for="returnPickupAtFixed" class="col-sm-4 control-label">Pickup At</label>
+            <label for="returnPickupAtFixed" class="col-sm-4 control-label">Return Pickup At</label>
             <div class="col-sm-8">
-               <input type="text" id="returnPickupAtFixed" class="form-control">
+               <select id="returnPickupAtFixed" class="form-control">
+                  <option></option>
+               </select>
             </div>
           </div>
-          <div class="form-group return-dropoff-fixed roundtrip">
-            <label for="returnDropoffAtFixed" class="col-sm-4 control-label">Dropoff At</label>
+          <div class="form-group return-dropoff-fixed roundtrip hide">
+            <label for="returnDropoffAtFixed" class="col-sm-4 control-label">Return Dropoff At</label>
             <div class="col-sm-8">
-               <input type="text" id="returnDropoffAtFixed" class="form-control">
+               <select id="returnDropoffAtFixed" class="form-control">
+                  <option></option>
+               </select>
             </div>
           </div>
           <div class="form-group return-dropoff-auto hide roundtrip">
-            <label for="returnDropoffAtAuto" class="col-sm-4 control-label">Dropoff At</label>
+            <label for="returnDropoffAtAuto" class="col-sm-4 control-label">Return Dropoff At</label>
             <div class="col-sm-8">
                <input type="text" id="returnDropoffAtAuto" class="form-control">
             </div>
           </div>
           <div class="form-group" style="padding-right:20px;">
-            <button type="submit" class="btn btn-default pull-right">View Rates</button>
+            <button type="button" id="newCarSearch" class="btn btn-primary pull-right">View Rates</button>
           </div>
         </form>
       </div>
     </div>
   </div>
   <div class="col-md-6">
-    <div class="panel panel-default" style="background:#DFF0D8">
+    <div class="panel panel-default" style="background:#FFF">
       <div class="panel-body">
         <div id="map-container"  style="height:400px;"></div>
       </div>

@@ -1,0 +1,466 @@
+[{
+	"vehicle_name": "SEDAN 1 to 2 Passenger",
+	"vehicle_type_id": 3332,
+	"vehicle_description": "4 Door Lincoln MKS, 3 Luggage and 1 carry-on allowed.  \r\nFair include Toll, Tax & Fuel, and Gratuity.  We will charge extra $15.00 for pickups between 10 P.M to 6 A.M. ",
+	"image_url": "https://www.filepicker.io/api/file/ZFDhVbT3TJC13fqZ8ofm",
+	"has_image": true,
+	"capacity": 2,
+	"rate_group_name": "Regular",
+	"minimum_hours": 3.0,
+	"availability": {
+		"available": true,
+		"reason": ""
+	},
+	"base_rate_item": {
+		"rate_type": "Distance",
+		"amount": 193.21,
+		"rate_description": "Base distance based rate",
+		"rate_exists": true,
+		"from_zone": null,
+		"to_zone": null,
+		"trip_distance": 69.0,
+		"base_transfer_rate": "49.0",
+		"base_transfer_distance": "0.0",
+		"cost_per_distance_unit": "2.09",
+		"distance_unit": "1.0",
+		"max_distance": "250.0",
+		"chargeable_distance": 69.0,
+		"chargeable_distance_amount": "144.21",
+		"hourly_rate": null,
+		"meets_minimum_hours": true,
+		"message": null
+	},
+	"required_fixed_rate_items": [],
+	"optional_fixed_rate_items": [{
+		"description": "Meet and Greet service",
+		"amount": 12.0,
+		"is_selected": false
+	}, {
+		"description": "Extra Stops",
+		"amount": 20.0,
+		"is_selected": false
+	}, {
+		"description": "Booster-seat",
+		"amount": 10.0,
+		"is_selected": false
+	}, {
+		"description": "Car-seat",
+		"amount": 10.0,
+		"is_selected": false
+	}, {
+		"description": "Pickups between 10 P.M to 6 A.M ",
+		"amount": 15.0,
+		"is_selected": false
+	}],
+	"incremental_rate_items": [{
+		"incremental_amount": 0.0,
+		"description": "Bags",
+		"selected_value": 0,
+		"incremental_minimum": 0,
+		"incremental_maximum": 12
+	}, {
+		"incremental_amount": 0.0,
+		"description": "Carry-on",
+		"selected_value": 0,
+		"incremental_minimum": 0,
+		"incremental_maximum": 6
+	}],
+	"base_rate_percentage_rate_items": [],
+	"subtotal_percentage_rate_items": [],
+	"pickup_address": {
+		"address_type": "Pickup",
+		"location_name": "Milford",
+		"line1": " ",
+		"line2": null,
+		"city": "Milford",
+		"state": "CT",
+		"zip": "",
+		"full_address": "Milford, CT",
+		"longitude": -73.06403599999999,
+		"latitude": 41.2306979
+	},
+	"dropoff_address": {
+		"address_type": "Dropoff",
+		"location_name": "John F. Kennedy International Airport",
+		"line1": "",
+		"line2": null,
+		"city": "Jamaica",
+		"state": "NY",
+		"zip": "11430",
+		"full_address": "Jamaica, NY, 11430",
+		"longitude": -73.7889689,
+		"latitude": 40.6433507
+	}
+}, {
+	"vehicle_name": "MID-SIZE SUV 1 to  3 Passenger",
+	"vehicle_type_id": 3337,
+	"vehicle_description": "4 Door Lincoln MKT/ Toyota Highlander, 4 Luggage and 3 carry-on allowed.  \r\nFair include Toll, Tax & Fuel, and Gratuity.  We will charge extra $15.00 for pickups between 10 P.M to 6 A.M. ",
+	"image_url": "https://www.filepicker.io/api/file/GuQx2vSGQreXs4ihV4Dx",
+	"has_image": true,
+	"capacity": 3,
+	"rate_group_name": "Regular",
+	"minimum_hours": 3.0,
+	"availability": {
+		"available": true,
+		"reason": ""
+	},
+	"base_rate_item": {
+		"rate_type": "Distance",
+		"amount": 217.01,
+		"rate_description": "Base distance based rate",
+		"rate_exists": true,
+		"from_zone": null,
+		"to_zone": null,
+		"trip_distance": 69.0,
+		"base_transfer_rate": "59.0",
+		"base_transfer_distance": "0.0",
+		"cost_per_distance_unit": "2.29",
+		"distance_unit": "1.0",
+		"max_distance": "250.0",
+		"chargeable_distance": 69.0,
+		"chargeable_distance_amount": "158.01",
+		"hourly_rate": null,
+		"meets_minimum_hours": true,
+		"message": null
+	},
+	"required_fixed_rate_items": [],
+	"optional_fixed_rate_items": [{
+		"description": "Meet and Greet service",
+		"amount": 12.0,
+		"is_selected": false
+	}, {
+		"description": "Extra Stops",
+		"amount": 20.0,
+		"is_selected": false
+	}, {
+		"description": "Booster-seat",
+		"amount": 10.0,
+		"is_selected": false
+	}, {
+		"description": "Car-seat",
+		"amount": 10.0,
+		"is_selected": false
+	}, {
+		"description": "Pickups between 10 P.M to 6 A.M ",
+		"amount": 15.0,
+		"is_selected": false
+	}],
+	"incremental_rate_items": [{
+		"incremental_amount": 0.0,
+		"description": "Bags",
+		"selected_value": 0,
+		"incremental_minimum": 0,
+		"incremental_maximum": 12
+	}, {
+		"incremental_amount": 0.0,
+		"description": "Carry-on",
+		"selected_value": 0,
+		"incremental_minimum": 0,
+		"incremental_maximum": 6
+	}],
+	"base_rate_percentage_rate_items": [],
+	"subtotal_percentage_rate_items": [],
+	"pickup_address": {
+		"address_type": "Pickup",
+		"location_name": "Milford",
+		"line1": " ",
+		"line2": null,
+		"city": "Milford",
+		"state": "CT",
+		"zip": "",
+		"full_address": "Milford, CT",
+		"longitude": -73.06403599999999,
+		"latitude": 41.2306979
+	},
+	"dropoff_address": {
+		"address_type": "Dropoff",
+		"location_name": "John F. Kennedy International Airport",
+		"line1": "",
+		"line2": null,
+		"city": "Jamaica",
+		"state": "NY",
+		"zip": "11430",
+		"full_address": "Jamaica, NY, 11430",
+		"longitude": -73.7889689,
+		"latitude": 40.6433507
+	}
+}, {
+	"vehicle_name": " SUV Up to 4 Passenger",
+	"vehicle_type_id": 3333,
+	"vehicle_description": "4 Door Chevy Suburban, 8 Luggage and 3 carry-on allowed.  \r\nFair include Toll, Tax & Fuel, and Gratuity.  We will charge extra $15.00 for pickups between 10 P.M to 6 A.M. ",
+	"image_url": "https://www.filepicker.io/api/file/udHLbJC0QyOKnbP1Vc4V",
+	"has_image": true,
+	"capacity": 4,
+	"rate_group_name": "Regular",
+	"minimum_hours": 3.0,
+	"availability": {
+		"available": true,
+		"reason": ""
+	},
+	"base_rate_item": {
+		"rate_type": "Distance",
+		"amount": 254.61,
+		"rate_description": "Base distance based rate",
+		"rate_exists": true,
+		"from_zone": null,
+		"to_zone": null,
+		"trip_distance": 69.0,
+		"base_transfer_rate": "69.0",
+		"base_transfer_distance": "0.0",
+		"cost_per_distance_unit": "2.69",
+		"distance_unit": "1.0",
+		"max_distance": "250.0",
+		"chargeable_distance": 69.0,
+		"chargeable_distance_amount": "185.61",
+		"hourly_rate": null,
+		"meets_minimum_hours": true,
+		"message": null
+	},
+	"required_fixed_rate_items": [],
+	"optional_fixed_rate_items": [{
+		"description": "Meet and Greet service",
+		"amount": 12.0,
+		"is_selected": false
+	}, {
+		"description": "Extra Stops",
+		"amount": 20.0,
+		"is_selected": false
+	}, {
+		"description": "Booster-seat",
+		"amount": 10.0,
+		"is_selected": false
+	}, {
+		"description": "Car-seat",
+		"amount": 10.0,
+		"is_selected": false
+	}, {
+		"description": "Pickups between 10 P.M to 6 A.M ",
+		"amount": 15.0,
+		"is_selected": false
+	}],
+	"incremental_rate_items": [{
+		"incremental_amount": 0.0,
+		"description": "Bags",
+		"selected_value": 0,
+		"incremental_minimum": 0,
+		"incremental_maximum": 12
+	}, {
+		"incremental_amount": 0.0,
+		"description": "Carry-on",
+		"selected_value": 0,
+		"incremental_minimum": 0,
+		"incremental_maximum": 6
+	}],
+	"base_rate_percentage_rate_items": [],
+	"subtotal_percentage_rate_items": [],
+	"pickup_address": {
+		"address_type": "Pickup",
+		"location_name": "Milford",
+		"line1": " ",
+		"line2": null,
+		"city": "Milford",
+		"state": "CT",
+		"zip": "",
+		"full_address": "Milford, CT",
+		"longitude": -73.06403599999999,
+		"latitude": 41.2306979
+	},
+	"dropoff_address": {
+		"address_type": "Dropoff",
+		"location_name": "John F. Kennedy International Airport",
+		"line1": "",
+		"line2": null,
+		"city": "Jamaica",
+		"state": "NY",
+		"zip": "11430",
+		"full_address": "Jamaica, NY, 11430",
+		"longitude": -73.7889689,
+		"latitude": 40.6433507
+	}
+}, {
+	"vehicle_name": "FULL-SIZE SUV Up to 6 Passenger",
+	"vehicle_type_id": 3343,
+	"vehicle_description": "4 Door Chevy Suburban, 6 Luggage and 6 carry-on allowed.  \r\nFair include Toll, Tax & Fuel, and Gratuity.  We will charge extra $15.00 for pickups between 10 P.M to 6 A.M. ",
+	"image_url": "https://www.filepicker.io/api/file/jJkgiZDST5e1JmyzQvPa",
+	"has_image": true,
+	"capacity": 6,
+	"rate_group_name": "Regular",
+	"minimum_hours": 3.0,
+	"availability": {
+		"available": true,
+		"reason": ""
+	},
+	"base_rate_item": {
+		"rate_type": "Distance",
+		"amount": 292.21,
+		"rate_description": "Base distance based rate",
+		"rate_exists": true,
+		"from_zone": null,
+		"to_zone": null,
+		"trip_distance": 69.0,
+		"base_transfer_rate": "79.0",
+		"base_transfer_distance": "0.0",
+		"cost_per_distance_unit": "3.09",
+		"distance_unit": "1.0",
+		"max_distance": "250.0",
+		"chargeable_distance": 69.0,
+		"chargeable_distance_amount": "213.21",
+		"hourly_rate": null,
+		"meets_minimum_hours": true,
+		"message": null
+	},
+	"required_fixed_rate_items": [],
+	"optional_fixed_rate_items": [{
+		"description": "Meet and Greet service",
+		"amount": 12.0,
+		"is_selected": false
+	}, {
+		"description": "Extra Stops",
+		"amount": 20.0,
+		"is_selected": false
+	}, {
+		"description": "Booster-seat",
+		"amount": 10.0,
+		"is_selected": false
+	}, {
+		"description": "Car-seat",
+		"amount": 10.0,
+		"is_selected": false
+	}, {
+		"description": "Pickups between 10 P.M to 6 A.M ",
+		"amount": 15.0,
+		"is_selected": false
+	}],
+	"incremental_rate_items": [{
+		"incremental_amount": 0.0,
+		"description": "Bags",
+		"selected_value": 0,
+		"incremental_minimum": 0,
+		"incremental_maximum": 12
+	}, {
+		"incremental_amount": 0.0,
+		"description": "Carry-on",
+		"selected_value": 0,
+		"incremental_minimum": 0,
+		"incremental_maximum": 6
+	}],
+	"base_rate_percentage_rate_items": [],
+	"subtotal_percentage_rate_items": [],
+	"pickup_address": {
+		"address_type": "Pickup",
+		"location_name": "Milford",
+		"line1": " ",
+		"line2": null,
+		"city": "Milford",
+		"state": "CT",
+		"zip": "",
+		"full_address": "Milford, CT",
+		"longitude": -73.06403599999999,
+		"latitude": 41.2306979
+	},
+	"dropoff_address": {
+		"address_type": "Dropoff",
+		"location_name": "John F. Kennedy International Airport",
+		"line1": "",
+		"line2": null,
+		"city": "Jamaica",
+		"state": "NY",
+		"zip": "11430",
+		"full_address": "Jamaica, NY, 11430",
+		"longitude": -73.7889689,
+		"latitude": 40.6433507
+	}
+}, {
+	"vehicle_name": "VAN Up to 10 Passenger",
+	"vehicle_type_id": 3347,
+	"vehicle_description": "Ford Van, 10 Luggage and 8 carry-on allowed.  \r\nFair include Toll, Tax & Fuel, and Gratuity.  We will charge extra $15.00 for pickups between 10 P.M to 6 A.M. ",
+	"image_url": "https://www.filepicker.io/api/file/yZz0LxgRJ2HIyi0aTG2e",
+	"has_image": true,
+	"capacity": 10,
+	"rate_group_name": "Regular",
+	"minimum_hours": 3.0,
+	"availability": {
+		"available": true,
+		"reason": ""
+	},
+	"base_rate_item": {
+		"rate_type": "Distance",
+		"amount": 329.81,
+		"rate_description": "Base distance based rate",
+		"rate_exists": true,
+		"from_zone": null,
+		"to_zone": null,
+		"trip_distance": 69.0,
+		"base_transfer_rate": "89.0",
+		"base_transfer_distance": "0.0",
+		"cost_per_distance_unit": "3.49",
+		"distance_unit": "1.0",
+		"max_distance": "250.0",
+		"chargeable_distance": 69.0,
+		"chargeable_distance_amount": "240.81",
+		"hourly_rate": null,
+		"meets_minimum_hours": true,
+		"message": null
+	},
+	"required_fixed_rate_items": [],
+	"optional_fixed_rate_items": [{
+		"description": "Meet and Greet service",
+		"amount": 12.0,
+		"is_selected": false
+	}, {
+		"description": "Extra Stops",
+		"amount": 20.0,
+		"is_selected": false
+	}, {
+		"description": "Booster-seat",
+		"amount": 10.0,
+		"is_selected": false
+	}, {
+		"description": "Car-seat",
+		"amount": 10.0,
+		"is_selected": false
+	}, {
+		"description": "Pickups between 10 P.M to 6 A.M ",
+		"amount": 15.0,
+		"is_selected": false
+	}],
+	"incremental_rate_items": [{
+		"incremental_amount": 0.0,
+		"description": "Bags",
+		"selected_value": 0,
+		"incremental_minimum": 0,
+		"incremental_maximum": 12
+	}, {
+		"incremental_amount": 0.0,
+		"description": "Carry-on",
+		"selected_value": 0,
+		"incremental_minimum": 0,
+		"incremental_maximum": 6
+	}],
+	"base_rate_percentage_rate_items": [],
+	"subtotal_percentage_rate_items": [],
+	"pickup_address": {
+		"address_type": "Pickup",
+		"location_name": "Milford",
+		"line1": " ",
+		"line2": null,
+		"city": "Milford",
+		"state": "CT",
+		"zip": "",
+		"full_address": "Milford, CT",
+		"longitude": -73.06403599999999,
+		"latitude": 41.2306979
+	},
+	"dropoff_address": {
+		"address_type": "Dropoff",
+		"location_name": "John F. Kennedy International Airport",
+		"line1": "",
+		"line2": null,
+		"city": "Jamaica",
+		"state": "NY",
+		"zip": "11430",
+		"full_address": "Jamaica, NY, 11430",
+		"longitude": -73.7889689,
+		"latitude": 40.6433507
+	}
+}]

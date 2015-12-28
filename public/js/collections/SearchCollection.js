@@ -7,5 +7,5 @@ define([
       	console.log('Collection Initialized');
       }
    });
-	return Tweets;
+	return searchCollection;
 });
