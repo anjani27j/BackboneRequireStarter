@@ -1,0 +1,38 @@
+[
+    {
+        "airport_name": "John F. Kennedy International Airport",
+        "airport_id": 1
+    },
+    {
+        "airport_name": "LaGuardia Airport",
+        "airport_id": 2
+    },
+    {
+        "airport_name": "Westchester County Airport",
+        "airport_id": 3
+    },
+    {
+        "airport_name": "Newark Liberty International Airport",
+        "airport_id": 4
+    },
+    {
+        "airport_name": "Bradley International Airport ",
+        "airport_id": 5
+    },
+    {
+        "airport_name": " Manhattan Cruise Terminal",
+        "airport_id": 6
+    },
+    {
+        "airport_name": "T. F. Green Airport",
+        "airport_id": 7
+    },
+    {
+        "airport_name": "Black Falcon Cruise Terminal",
+        "airport_id": 8
+    },
+    {
+        "airport_name": "Logan International Airport",
+        "airport_id": 9
+    }
+]

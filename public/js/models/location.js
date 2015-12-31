@@ -1,7 +1,7 @@
 define(function() {
-   var Search = Backbone.Model.extend({
+   var Location = Backbone.Model.extend({
       initialize: function() {
       }
    });
-   return Search;
+   return Location;
 });

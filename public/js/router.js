@@ -23,7 +23,7 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 			var self = this;
 			require(['views/customer/searchResultView'], function(SearchResultView) {
 				var searchResultView = new SearchResultView();
-				searchResultView.render();
+				searchResultView.fetchCars();
 			})
 		},
 		//all admin route callbacks go here

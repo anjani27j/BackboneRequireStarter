@@ -2,10 +2,11 @@ define([
    'jquery', 
    'backbone', 
    'handlebars', 
-   'models/search', 
+   'models/searchSummary', 
+   'collections/locations', 
    'text!templates/customer/mainSearch.handlebars',
    'datetimepicker'
-   ], function($, Backbone, Handlebars, Search, SearchTemplate) {
+   ], function($, Backbone, Handlebars, SearchSummary, Locations, SearchTemplate) {
    var mainSearchView = Backbone.View.extend({
       el: '#main-container',
       events: {
@@ -14,9 +15,17 @@ define([
       },
       initialize: function() {
          this.template = Handlebars.compile(SearchTemplate);
-         this.model = new Search();
+         this.model = new SearchSummary();
          this.pickupid='pickupAtAuto';
          this.dropoffid='dropoffAtFixed';
+         this.locations = new Locations();
+         this.listenTo(this.locations, 'update locations', this.updateLocations, this);
+         var self = this;
+         this.locations.fetch({
+            success: function(){
+               self.updateLocations();
+            }
+         });
       },
       render: function() {
          this.$el.removeClass('dashboard');
@@ -28,6 +37,17 @@ define([
          });
          this.initGoogleMap('pickupAtAuto');
          return this;
+      },
+      updateLocations : function(selector){
+         var options = '';
+         $.each(this.locations.models,function(i,location){
+            options += '<option value="'+location.get('airport_id')+'">'+location.get('airport_name')+'</option>'
+         })
+         if(selector === undefined){
+            $('#dropoffAtFixed').html(options);
+         }else{
+            $('#'+selector).html(options);
+         }
       },
       selectServiceHandler: function(event){
          var selectedOption= parseInt($(event.currentTarget)[0].selectedOptions[0].value);
@@ -42,6 +62,7 @@ define([
                this.pickupid='pickupAtAuto';
                this.dropoffid='dropoffAtFixed';
                this.initGoogleMap('pickupAtAuto');
+               this.updateLocations('dropoffAtFixed');
                break;
             case 2:
                $('.pickup-auto').addClass('hide');
@@ -52,6 +73,7 @@ define([
                this.pickupid='pickupAtFixed';
                this.dropoffid='dropoffAtAuto';
                this.initGoogleMap('dropoffAtAuto');
+               this.updateLocations('pickupAtFixed');
                break;
             case 3:
                $('.roundtrip').removeClass('hide');
@@ -65,9 +87,12 @@ define([
                $('.return-dropoff-auto').removeClass('hide');
                this.pickupid='pickupAtAuto';
                this.dropoffid='dropoffAtFixed';
-               this.returnPickupid='pickupAtAuto';
-               this.returnDropoffid='dropoffAtFixed';
+               this.returnPickupid='returnPickupAtFixed';
+               this.returnDropoffid='returnDropoffAtAuto';
+               this.initGoogleMap('pickupAtAuto');
                this.initGoogleMap('returnDropoffAtAuto');
+               this.updateLocations('dropoffAtFixed');
+               this.updateLocations('returnPickupAtFixed');
                break;
             case 4:
                $('.roundtrip').removeClass('hide');
@@ -79,7 +104,14 @@ define([
                $('.return-dropoff-fixed').removeClass('hide');
                $('.return-pickup-fixed').addClass('hide');
                $('.return-dropoff-auto').addClass('hide');
+               this.pickupid='pickupAtFixed';
+               this.dropoffid='dropoffAtAuto';
+               this.returnPickupid='returnPickupAtAuto';
+               this.returnDropoffid='returnDropoffAtFixed';
+               this.initGoogleMap('dropoffAtAuto');
                this.initGoogleMap('returnPickupAtAuto');
+               this.updateLocations('pickupAtFixed');
+               this.updateLocations('returnDropoffAtFixed');
                break;
             case 5:
                $('.pickup-auto').removeClass('hide');
@@ -89,6 +121,8 @@ define([
                $('.roundtrip').addClass('hide');
                this.initGoogleMap('pickupAtAuto');
                this.initGoogleMap('dropoffAtAuto');
+               this.dropoffid='dropoffAtAuto';
+               this.pickupid='pickupAtAuto';
                break;
             case 6:
                $('.pickup-auto').removeClass('hide');
@@ -96,7 +130,10 @@ define([
                $('.pickup-fixed').addClass('hide');
                $('.dropoff-auto').addClass('hide');
                $('.roundtrip').addClass('hide');
+               this.dropoffid='dropoffAtFixed';
+               this.pickupid='pickupAtAuto';
                this.initGoogleMap('pickupAtAuto');
+               this.updateLocations('dropoffAtFixed');
                break;
             case 7:
                $('.pickup-auto').addClass('hide');
@@ -104,21 +141,33 @@ define([
                $('.pickup-fixed').removeClass('hide');
                $('.dropoff-auto').removeClass('hide');
                $('.roundtrip').addClass('hide');
+               this.dropoffid='dropoffAtAuto';
+               this.pickupid='pickupAtFixed';
                this.initGoogleMap('dropoffAtAuto');
+               this.updateLocations('pickupAtFixed');
                break;
          }
       },
       newCarSearchHandler : function(event){
-         debugger;
-         this.model.set('service_id',$('#selectService')[0].selectedOptions[0].value);
-         this.model.set('num_of_passenger',parseInt($('#passengersCount')[0].selectedOptions[0].value));
-         this.model.set('pickup_date',$('#datepicker').text());
-         this.model.set('pickup_date',$('#datepicker').text());
-         this.model.set('pickup_date',$('#datepicker').text());
-         if($($('#selectService')[0].selectedOptions).attr('type')==='twoway'){
-
+         var query='';
+         query+='service_id='+$('#selectService')[0].selectedOptions[0].value;
+         query+='&num_of_passenger'+$('#passengersCount')[0].selectedOptions[0].value;
+         query+='&pickup_date+'+$('#datepicker').text();
+         if($('.pickup-auto').hasClass('hide')){
+            query+='&pickup_location'+$('#pickupAtFixed').text();
+         }else{
+            query+='&pickup_location'+$('#pickupAtAuto').val();
          }
-
+         
+         if($('.dropoff-auto').hasClass('hide')){
+            query+='&dropoff_location'+$('#dropoffAtFixed').text();
+         }else{
+            query+='&dropoff_location'+$('#dropoffAtAuto').val();
+         }
+         if($($('#selectService')[0].selectedOptions).attr('type')==='twoway'){
+         }
+         window.location='#searchResult';
+        // $('#newCarSearch').click();
       },
       'initGoogleMap' : function(selector){
          if(!!navigator.geolocation) {
