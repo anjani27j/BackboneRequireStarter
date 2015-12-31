@@ -3,7 +3,8 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 		routes : {
 			'' : 'showSearch',
 			'searchResult' : 'showSearchResult',
-			'dashboard' : 'showAdminDashboard'
+			'dashboard' : 'showAdminDashboard',
+			'orders/:id' : 'showOrderDetails'
 		},
 		initialize : function() {
 			require(['views/admin/sideMenuView'], function(SideMenuView) {
@@ -31,6 +32,13 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 			require(['views/admin/adminDashboardView'], function(AdminDashboardView) {
 				var adminDashboardView = new AdminDashboardView();
 				adminDashboardView.render();
+			})
+		},
+		showOrderDetails : function() {
+			var self = this;
+			require(['views/admin/adminOrderDetailsView'], function(AdminOrderDetailsView) {
+				var adminOrderDetailsView = new AdminOrderDetailsView();
+				adminOrderDetailsView.render();
 			})
 		}
 	});
