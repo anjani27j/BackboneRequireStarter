@@ -8,9 +8,11 @@
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
   color: #555;
- /* background-color: #ebe8e2;
-  background-image: url("../img/45-degree-fabric-dark.png");*/
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+ background: 
+radial-gradient(circle at 100% 50%, transparent 20%, rgba(255,255,255,.3) 21%, rgba(255,255,255,.3) 34%, transparent 35%, transparent),
+radial-gradient(circle at 0% 50%, transparent 20%, rgba(255,255,255,.3) 21%, rgba(255,255,255,.3) 34%, transparent 35%, transparent) 0 -50px;
+background-color: #DFDBD4;
+background-size:75px 100px;
 }
 
 h1, .h1,
@@ -169,4 +171,10 @@ a {
 }
 .panel-body {
     padding: 15px;
+}
+#requestSummary{
+  margin: 20px;
+  background: #ddd;
+  padding-top: 10px;
+  border-radius: 4px;
 }
