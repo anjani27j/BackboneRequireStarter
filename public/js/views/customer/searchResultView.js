@@ -5,13 +5,15 @@ define([
    'collections/cars',
    'models/car',
    'views/customer/summaryView',
+   'views/customer/customerView',
    'text!templates/customer/searchResult.handlebars',
    'datetimepicker'
-   ], function($, Backbone, Handlebars, Cars, Car, SummaryView, SearchResultTemplate) {
+   ], function($, Backbone, Handlebars, Cars, Car, SummaryView,CustomerView, SearchResultTemplate) {
    var searchResultView = Backbone.View.extend({
       el: '#main-container',
       events: {
-         'change #selectService' : 'selectServiceHandler' 
+         'change #selectService' : 'selectServiceHandler',
+         'click .reserve-now': 'reserveNowclickHandler'
       },
       initialize: function() {
          this.template = Handlebars.compile(SearchResultTemplate);
@@ -54,6 +56,19 @@ define([
          this.$el.find('#sidebar-nav').hide();
          this.summaryView.render();
          return this;
+      },
+      'reserveNowclickHandler': function(event){
+         var vehicleTypeId=parseInt($(event.currentTarget).attr('vehicle_type_id')),
+         self = this;
+         _.each(this.cars.models,function(car){
+            if(vehicleTypeId===car.get('vehicle_type_id')){
+               self.summaryView.model = car;
+            }
+         });
+         this.customerView = new CustomerView();
+         this.customerView.car=this.summaryView.model;
+         this.customerView.render();
+         debugger;
       }
   });
   return searchResultView;
