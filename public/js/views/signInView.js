@@ -20,6 +20,7 @@ define(['jquery', 'backbone', 'handlebars', 'text!templates/signIn.handlebars'],
                $('#validation-error').text('Password is mandatory fields.');
             }else{
                Backbone.history.navigate("", {trigger: true});
+               Backbone.history.navigate("", {trigger: true});
             }
          });
          return this;
