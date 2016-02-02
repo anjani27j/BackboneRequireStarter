@@ -4,7 +4,8 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 			'' : 'showSearch',
 			'searchResult' : 'showSearchResult',
 			'dashboard' : 'showAdminDashboard',
-			'orders/:id' : 'showOrderDetails'
+			'orders/:id' : 'showOrderDetails',
+			'signin' : 'showSignIn'
 		},
 		initialize : function() {
 			require(['views/admin/sideMenuView'], function(SideMenuView) {
@@ -12,7 +13,16 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 				sideMenuView.render();
 			})
 		},
+		showSignIn : function() {
+			$('.navbar').hide();
+			$('#main-container').removeClass('dashboard');
+			require(['views/signInView'], function(SignInView) {
+				var signInView = new SignInView();
+				signInView.render();
+			})
+		},
 		showSearch : function() {
+			$('.navbar').show();
 			var self = this;
 			require(['views/customer/mainSearchView'], function(MainSearchView) {
 				var mainSearchView = new MainSearchView();
