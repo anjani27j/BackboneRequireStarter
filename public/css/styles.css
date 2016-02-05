@@ -172,6 +172,10 @@ a {
     width: 425px;
     margin: 120px auto 0;
 }
+#signup-container {
+    width: 525px;
+    margin: 120px auto 0;
+}
 #login-header{
   padding:12px 20px;
   margin-bottom:1em;
@@ -205,4 +209,14 @@ a {
 }
 .unstyled{
   border: #fff solid;
+}
+.form-signup .control-label {
+  float: left;
+  font-weight: normal;
+  width: 160px;
+  padding-top: 5px;
+  text-align: right;
+}
+.form-signup .controls {
+  margin-left: 180px;
 }

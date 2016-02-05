@@ -8,7 +8,12 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 			'signin' : 'showSignIn',
 			'signup' : 'showSignUp'
 		},
+		execute: function(callback, args, name) {
+			$('#sidebar-nav').hide();
+		   	if (callback) callback.apply(this, args);
+		},
 		initialize : function() {
+			$('#sidebar-nav').hide();
 			require(['views/admin/sideMenuView'], function(SideMenuView) {
 				var sideMenuView = new SideMenuView();
 				sideMenuView.render();
@@ -16,7 +21,7 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 		},
 		showSignIn : function() {
 			$('.navbar').hide();
-			$('#main-container').removeClass('dashboard');
+			$('#main-container').removeClass().addClass('container');
 			require(['views/signInView'], function(SignInView) {
 				var signInView = new SignInView();
 				signInView.render();
@@ -24,7 +29,7 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 		},
 		showSignUp : function() {
 			$('.navbar').hide();
-			$('#main-container').removeClass('dashboard');
+			$('#main-container').removeClass().addClass('container');
 			require(['views/signUpView'], function(SignUpView) {
 				var signUpView = new SignUpView();
 				signUpView.render();
@@ -47,6 +52,8 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 		},
 		//all admin route callbacks go here
 		showAdminDashboard : function() {
+			$('.navbar').show();
+			$('#main-container').removeClass().addClass('container dashboard');
 			var self = this;
 			require(['views/admin/adminDashboardView'], function(AdminDashboardView) {
 				var adminDashboardView = new AdminDashboardView();
