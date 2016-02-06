@@ -1,5 +1,5 @@
-define(['jquery', 'backbone', 'handlebars', 'text!templates/signIn.handlebars'], 
-   function($, Backbone, Handlebars, SignInTemplate) {
+define(['jquery', 'bootstrap', 'backbone', 'handlebars', 'text!templates/signIn.handlebars'], 
+   function($, Bootstrap, Backbone, Handlebars, SignInTemplate) {
    var SignInView = Backbone.View.extend({
       el: '#main-container',
       events: {
@@ -14,12 +14,11 @@ define(['jquery', 'backbone', 'handlebars', 'text!templates/signIn.handlebars'],
             $('#validation-error').hide();
             if($('#user_email').val()==''){
                $('#validation-error').show();
-               $('#validation-error').text('Username is mandatory fields.');
+               $('#validation-error').text('Username is mandatory field.');
             }else if($('#user_password').val()==''){
                $('#validation-error').show();
-               $('#validation-error').text('Password is mandatory fields.');
+               $('#validation-error').text('Password is mandatory field.');
             }else{
-               Backbone.history.navigate("", {trigger: true});
                Backbone.history.navigate("", {trigger: true});
             }
          });

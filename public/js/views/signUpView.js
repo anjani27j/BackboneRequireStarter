@@ -31,6 +31,20 @@ define(['jquery', 'backbone', 'handlebars', 'text!templates/signUp.handlebars'],
                $('#validation-error').show();
                $('#validation-error').text('Phone is mandatory field.');
             }else{
+               var requestdata = {
+                  "user_type": "CUSTOMER",
+                  "first_name": "test",
+                  "last_name": "user",
+                  "email_id": "testuser@gmail.com",
+                  "mobile_number": 203893
+               }
+               $.ajax({
+                  url:'http://54.208.111.147:8080/v1/user',
+                  type:'POST',
+                  data:requestdata,
+                  success:function(){},
+                  error:function(){}
+               });
                Backbone.history.navigate("", {trigger: true});
             }
          });

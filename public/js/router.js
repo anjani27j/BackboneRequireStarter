@@ -6,7 +6,8 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 			'dashboard' : 'showAdminDashboard',
 			'orders/:id' : 'showOrderDetails',
 			'signin' : 'showSignIn',
-			'signup' : 'showSignUp'
+			'signup' : 'showSignUp',
+			'forgotpwd' : 'showForgotPwd'
 		},
 		execute: function(callback, args, name) {
 			$('#sidebar-nav').hide();
@@ -33,6 +34,14 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 			require(['views/signUpView'], function(SignUpView) {
 				var signUpView = new SignUpView();
 				signUpView.render();
+			})
+		},
+		showForgotPwd : function() {
+			$('.navbar').hide();
+			$('#main-container').removeClass().addClass('container');
+			require(['views/forgotPwdView'], function(ForgotPwdView) {
+				var forgotPwdView = new ForgotPwdView();
+				forgotPwdView.render();
 			})
 		},
 		showSearch : function() {
