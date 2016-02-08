@@ -3,7 +3,7 @@ define(['models/location'], function(Location) {
 
       model: Location,
 
-      url: '/js/data/airportData.json',
+      url: '/getAirport',
 
       initialize : function() {
       	console.log('Collection Initialized');

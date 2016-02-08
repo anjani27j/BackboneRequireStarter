@@ -24,30 +24,59 @@ define([
          var queryData={},
          self = this;
          try{
-            debugger;
-            queryData.service_id=$('#selectService')[0].selectedOptions[0].value;
-            queryData.num_of_passenger=$('#passengersCount')[0].selectedOptions[0].value;
-            queryData.pickup_date=$('#datepicker').val();
+            queryData.serviceType=$('#selectService')[0].selectedOptions[0].value;
+            queryData.serviceName=$('#selectService')[0].selectedOptions[0].value;
+            queryData.numOfPassenger=$('#passengersCount')[0].selectedOptions[0].value;
+            queryData.pickupDate=$('#datepicker').val();
             if($('.pickup-auto').hasClass('hide')){
-               queryData.pickup_location =$('#pickupAtFixed')[0].selectedOptions[0].text;
+               queryData.pickupLocation =$('#pickupAtFixed')[0].selectedOptions[0].text;
             }else{
-               queryData.pickup_location= $('#pickupAtAuto').val();
+               queryData.pickupLocation= $('#pickupAtAuto').val();
             }
+            queryData.pickupLocationZip='06460';
+            queryData.pickupLocationId=-1;
             if($('.dropoff-auto').hasClass('hide')){
-               queryData.dropoff_location=$('#dropoffAtFixed')[0].selectedOptions[0].text;
+               queryData.dropoffLocation=$('#dropoffAtFixed')[0].selectedOptions[0].text;
             }else{
-               queryData.dropoff_location=$('#dropoffAtAuto').val();
+               queryData.dropoffLocation=$('#dropoffAtAuto').val();
             }
-            queryData.service_name = $('#selectService')[0].selectedOptions[0].text;
+            queryData.dropOffLocation_id=1;
+            queryData.dropOffLocationZip='11430';
+            queryData.distanceMiles=0;
             this.summaryView.updateModel(queryData);
          }catch(error){}
+
          this.cars.fetch({
-            data:JSON.stringify(queryData)|| {},
-            success: function(){;
-               self.render();
-            }
+            contentType:'application/json',
+            type:'POST',
+            beforeSend:_.bind(this.showLoading,this),
+            complete:_.bind(this.showLoading,this),
+            data:JSON.stringify(queryData),
+            success: _.bind(this.carsResultHandler,this),
+            error: _.bind(this.renderError,this)
          });
       },
+      'showLoading': function(){
+        // debugger;
+      },
+      'hideLoading': function(){
+        // debugger;
+      },
+      'carsResultHandler': function(result){
+         debugger;
+         if(result.models.length>0){
+            if(result.models[0].get('errorCode')===""){
+               window.location='#';
+            }else{
+               this.render();
+            }
+         }
+      },
+      'renderError': function(err){
+         debugger;
+         window.location='#';
+      },
+
       render : function(){
          this.$el.removeClass('dashboard');
          this.$el.addClass('width90'); 
@@ -68,8 +97,7 @@ define([
          this.customerView = new CustomerView();
          this.customerView.car=this.summaryView.model;
          this.customerView.render();
-         debugger;
       }
-  });
+  }); 
   return searchResultView;
 });

@@ -11,7 +11,8 @@ define([
       el: '#main-container',
       events: {
          'change #selectService' : 'selectServiceHandler',
-         'click #newCarSearch' : 'newCarSearchHandler'
+         'click #newCarSearch' : 'newCarSearchHandler',
+         'change #pickupAtAuto': 'pickupAtAutoChange'
       },
       initialize: function() {
          this.template = Handlebars.compile(SearchTemplate);
@@ -39,9 +40,10 @@ define([
          return this;
       },
       updateLocations : function(selector){
+         debugger;
          var options = '';
          $.each(this.locations.models,function(i,location){
-            options += '<option value="'+location.get('airport_id')+'">'+location.get('airport_name')+'</option>'
+            options += '<option value="'+location.get('placeId')+'" zipCode="'+location.get('zipCode')+'">'+location.get('placeName')+'</option>'
          })
          if(selector === undefined){
             $('#dropoffAtFixed').html(options);
@@ -149,9 +151,9 @@ define([
          }
       },
       newCarSearchHandler : function(event){
-         var query='';
-         query+='service_id='+$('#selectService')[0].selectedOptions[0].value;
-         query+='&num_of_passenger'+$('#passengersCount')[0].selectedOptions[0].value;
+         /*var query='';
+         query+='serviceType='+$('#selectService')[0].selectedOptions[0].value;
+         query+='&numOfPassenger'+$('#passengersCount')[0].selectedOptions[0].value;
          query+='&pickup_date+'+$('#datepicker').text();
          if($('.pickup-auto').hasClass('hide')){
             query+='&pickup_location'+$('#pickupAtFixed').text();
@@ -165,13 +167,14 @@ define([
             query+='&dropoff_location'+$('#dropoffAtAuto').val();
          }
          if($($('#selectService')[0].selectedOptions).attr('type')==='twoway'){
-         }
+         }*/
          window.location='#searchResult';
         // $('#newCarSearch').click();
       },
       'initGoogleMap' : function(selector){
          if(!!navigator.geolocation) {
-            var map;
+            var map,
+            self = this;
             var mapOptions = {
                zoom: 15,
                mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -194,6 +197,7 @@ define([
                if (places.length == 0) {
                   return;
                }
+               self.selctedPlace=places;
                // Clear out the old markers.
                markers.forEach(function(marker) {
                  marker.setMap(null);
