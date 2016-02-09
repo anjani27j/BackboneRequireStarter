@@ -39,13 +39,18 @@ define(['jquery', 'backbone', 'handlebars', 'text!templates/signUp.handlebars'],
                   "mobile_number": 203893
                }
                $.ajax({
-                  url:'http://54.208.111.147:8080/v1/user',
-                  type:'POST',
-                  data:requestdata,
-                  success:function(){},
-                  error:function(){}
+                  url : "http://54.208.111.147:8080/v1/user",
+                  type: "POST",
+                  data : requestdata,
+                  success: function(data, textStatus, jqXHR){
+                       //data - response from server
+                  },
+                  error: function (jqXHR, textStatus, errorThrown){
+                
+                  }
                });
-               Backbone.history.navigate("", {trigger: true});
+               
+               //Backbone.history.navigate("", {trigger: true});
             }
          });
          return this;

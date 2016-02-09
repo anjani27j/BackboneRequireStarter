@@ -53,6 +53,7 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 			})
 		},
 		showSearchResult : function() {
+			$('.navbar').show();
 			var self = this;
 			require(['views/customer/searchResultView'], function(SearchResultView) {
 				var searchResultView = new SearchResultView();
@@ -70,6 +71,7 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 			})
 		},
 		showOrderDetails : function() {
+			$('.navbar').show();
 			var self = this;
 			require(['views/admin/adminOrderDetailsView'], function(AdminOrderDetailsView) {
 				var adminOrderDetailsView = new AdminOrderDetailsView();
