@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="span12">
+    <div id="signup-container">
+      <div id="login-header">
+        <h3>Customer Sign up</h3>
+      </div> <!-- /login-header -->
+      <div id="login-content" class="clearfix">
+        <div class="inputs form-signup">
+          <div class="control-group">
+            <label class="control-label">Email</label>
+            <div class="controls">
+              <input autofocus="autofocus" class="form-control" id="user_email" placeholder="Email" size="50" type="email">
+            </div>
+          </div>
+          <div class="control-group password optional">
+            <label class="control-label">Password</label>
+            <div class="controls">
+              <input class="form-control" id="user_password" placeholder="Choose password" size="50" type="password">
+            </div>
+          </div>
+          <div class="control-group password required">
+            <label class="control-label">
+              <abbr title="required">*</abbr> Password confirmation
+            </label>
+            <div class="controls">
+              <input class="form-control" id="user_password_confirmation" name="user[password_confirmation]" placeholder="Confirm password" required="required" size="50" type="password">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">
+              <abbr title="required">*</abbr> First name
+            </label>
+            <div class="controls">
+              <input class="form-control" id="user_first_name" placeholder="First name" required="required" size="50" type="text">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">
+              <abbr title="required">*</abbr> Last name
+            </label>
+            <div class="controls">
+              <input class="form-control" id="user_last_name" placeholder="Last name" required="required" size="50" type="text">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">
+              <abbr title="required">*</abbr> Phone
+            </label>
+            <div class="controls">
+              <input class="form-control" id="user_phone" placeholder="Phone" required="required" size="50" type="tel">
+            </div>
+          </div>
+          <div class="alert alert-danger" id="validation-error" style="display:none;"></div>
+          <div class="control-group">
+            <input class="btn btn-large btn-warning" value="Sign Up" id="signupBtn">
+          </div>
+        </div>
+      </div> <!-- /login-content -->
+      <div id="login-extra">
+        <a href="#signin">Sign In</a>
+      </div> <!-- /login-extra -->
+    </div> <!-- /login-wrapper -->
+  </div>
+</div>

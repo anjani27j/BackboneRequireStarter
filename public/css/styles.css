@@ -8,11 +8,7 @@
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
   color: #555;
- /*background: 
-radial-gradient(circle at 100% 50%, transparent 20%, rgba(255,255,255,.3) 21%, rgba(255,255,255,.3) 34%, transparent 35%, transparent),
-radial-gradient(circle at 0% 50%, transparent 20%, rgba(255,255,255,.3) 21%, rgba(255,255,255,.3) 34%, transparent 35%, transparent) 0 -50px;
-background-color: #DFDBD4;
-background-size:75px 100px;*/
+  background-color: #f7f7f7;
 }
 
 h1, .h1,
@@ -157,7 +153,7 @@ a {
 }
 .main-container-top-margin{
   margin-top: 62px;
-
+}
 .panel-default {
     border-color: #ddd;
 }
@@ -172,6 +168,39 @@ a {
 .panel-body {
     padding: 15px;
 }
+#login-container {
+    width: 425px;
+    margin: 120px auto 0;
+}
+#signup-container {
+    width: 525px;
+    margin: 120px auto 0;
+}
+#login-header{
+  padding:12px 20px;
+  margin-bottom:1em;
+  background:#3C4049;
+  background:-moz-linear-gradient(top, #4a515b 0%, #3c4049 100%);
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #4a515b), color-stop(100%, #3c4049));
+  background:-webkit-linear-gradient(top, #4a515b 0%, #3c4049 100%);
+  background:-o-linear-gradient(top, #4a515b 0%, #3c4049 100%);
+  background:-ms-linear-gradient(top, #4a515b 0%, #3c4049 100%);
+  background:linear-gradient(top, #4a515b 0%, #3c4049 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4A515B', endColorstr='#3C4049');-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr='#4A515B', endColorstr='#3C4049')";
+  border-radius:5px;
+  text-shadow:1px 1px 2px rgba(0,0,0,0.5)
+  }
+#login-header h3{
+  margin-bottom:0;font-size:16px;color:#FFF
+}
+#login-content{
+  padding:20px;background:#FFF;border:1px solid #DDD;border-radius:5px;box-shadow:0 0 6px rgba(0,0,0,0.1)
+}
+#login-content .btn{width:100%;padding:2% 2%}
+#login-extra{margin-top:1.5em;text-align:center}
+#login-extra p{font-size:12px;color:#888}
+#login-content .actions{text-align:center}
+.control-group{margin-top: 20px;}
 #requestSummary{
   margin: 20px;
   background: #ddd;
@@ -180,4 +209,14 @@ a {
 }
 .unstyled{
   border: #fff solid;
+}
+.form-signup .control-label {
+  float: left;
+  font-weight: normal;
+  width: 160px;
+  padding-top: 5px;
+  text-align: right;
+}
+.form-signup .controls {
+  margin-left: 180px;
 }

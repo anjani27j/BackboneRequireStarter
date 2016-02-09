@@ -17,9 +17,6 @@ define([
       },
       render: function() {
          if(!_.isEmpty(this.model.attributes)){
-            this.$el.addClass('dashboard');
-            this.$el.removeClass('width90');
-            this.$el.removeClass('main-container-top-margin');
             this.$el.html(this.template({data:this.model.attributes}));
             $("a[href='#dashboard']").append('<div class="pointer"><div class="arrow"></div><div class="arrow_border"></div></div>')
             $('#sidebar-nav').show();

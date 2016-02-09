@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="span12">
+    <div id="login-container">
+      <div class="alert alert-success" style="display:none;">
+        <a class="close" data-dismiss="alert">x</a>
+        You will receive an email with instructions about how to reset your password in a few minutes.
+      </div>
+      <div id="login-header">
+        <h3>Customer Login</h3>
+      </div>
+      <div id="login-content" class="clearfix">
+        <div class="inputs">
+          <div class="control-group email optional">
+            <label class="email optional control-label">Email</label>
+            <div class="controls">
+              <input autofocus="autofocus" class="form-control" id="user_email" />
+            </div>
+          </div>
+          <div class="control-group password optional">
+            <label class="password optional control-label">Password</label>
+            <div class="controls">
+              <input class="password optional form-control" id="user_password" name="user[password]" size="50" type="password">
+            </div>
+          </div>
+          
+            <div class="control-group boolean optional">
+              <label class="boolean optional control-label" style="margin-left:5px;">Remember me</label>
+              <input class="boolean optional pull-left" id="user_remember_me" type="checkbox" />
+            </div>
+          
+          <div class="alert alert-danger" id="validation-error" style="display:none;"></div>
+
+          <div class="control-group">
+            <input class="btn btn-large btn-warning" value="Sign in" id="signinBtn" />
+          </div>
+        </div>
+      </div> 
+      <div id="login-extra">
+        <a href="#signup" class="medium-bottom-margin">Don't have an account? Sign up here</a><br>
+        <a href="#forgotpwd">Forgot your password?</a><br>
+      </div>
+    </div>
+  </div>
+</div>
