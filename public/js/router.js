@@ -7,7 +7,8 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 			'orders/:id' : 'showOrderDetails',
 			'signin' : 'showSignIn',
 			'signup' : 'showSignUp',
-			'forgotpwd' : 'showForgotPwd'
+			'forgotpwd' : 'showForgotPwd',
+			'myAccount' : 'showMyAccount'
 		},
 		execute: function(callback, args, name) {
 			$('#sidebar-nav').hide();
@@ -46,6 +47,13 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 		},
 		showSearch : function() {
 			$('.navbar').show();
+			if(window.isUserLogged){
+				$('.navbar-right .navLogged').hide();
+				$('.navbar-right .dropdown').show();
+			}else{
+				$('.navbar-right .navLogged').show();
+				$('.navbar-right .dropdown').hide();
+			}
 			var self = this;
 			require(['views/customer/mainSearchView'], function(MainSearchView) {
 				var mainSearchView = new MainSearchView();
@@ -77,6 +85,9 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 				var adminOrderDetailsView = new AdminOrderDetailsView();
 				adminOrderDetailsView.render();
 			})
+		},
+		showMyAccount : function() {
+
 		}
 	});
 	return Router;

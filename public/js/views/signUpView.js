@@ -31,18 +31,27 @@ define(['jquery', 'backbone', 'handlebars', 'text!templates/signUp.handlebars'],
                $('#validation-error').show();
                $('#validation-error').text('Phone is mandatory field.');
             }else{
+               
                var requestdata = {
-                  "user_type": "CUSTOMER",
-                  "first_name": "test",
-                  "last_name": "user",
-                  "email_id": "testuser@gmail.com",
-                  "mobile_number": 203893
-               }
+                  "firstName": $('#user_first_name').val().trim(),
+                  "lastName": $('#user_last_name').val().trim(),
+                  "emailId": $('#user_email').val().trim(),
+                  "userName": $('#user_email').val().trim(),
+                  "password": $('#user_phone').val().trim()
+                }
                $.ajax({
-                  url : "http://54.208.111.147:8080/v1/user",
+                  //url : "/signUp",
+                  url : "http://54.208.111.147:8080/v1/signUp",
                   type: "POST",
-                  data : requestdata,
+                  headers: {'accept' : 'application/json;charset=UTF-8','content-type' : 'application/json'},
+                  data : JSON.stringify(requestdata),
                   success: function(data, textStatus, jqXHR){
+                    if(data.userId){
+                      //Backbone.history.navigate("#myAccount", {trigger: true});
+                      $('#loggedinUsername').html(data.firstName+' '+data.lastName+'<b class="caret"></b>');
+                      window.isUserLogged = true;
+                      Backbone.history.navigate("", {trigger: true});
+                    }
                        //data - response from server
                   },
                   error: function (jqXHR, textStatus, errorThrown){

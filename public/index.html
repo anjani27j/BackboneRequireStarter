@@ -20,8 +20,19 @@
         <li><a href="mailto:biplob.anwar@gmail.com">Email us: <i class="icon-envelope"></i> biplob.anwar@gmail.com</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#signup">Sign Up</a></li>
-        <li><a href="#signin">Sign In</a></li>
+        <li class="navLogged"><a href="#signup">Sign Up</a></li>
+        <li class="navLogged"><a href="#signin">Sign In</a></li>
+        <li class="navLogged dropdown">
+          <a id="loggedinUsername" class="dropdown-toggle" data-toggle="dropdown" href="#">anurag sharma<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="/accounts/edit_password">Change my password</a>
+            </li>
+            <li>
+              <a href="/users/sign_out" data-method="delete" rel="nofollow"><i class="icon-off"></i> Logout</a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>

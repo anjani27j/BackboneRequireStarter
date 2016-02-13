@@ -6,6 +6,18 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.all('/signUp', function(req, res){
+	var data=req.body;
+	request.post({
+	  headers: {'accept' : 'application/json;charset=UTF-8','content-type' : 'application/json'},
+	  url:     'http://54.208.111.147:8080/v1/signUp',
+	  body:    JSON.stringify(data)
+	}, function(error, response, body){
+		//console.log('response::::'+response);
+	  	//console.log('body::::'+body);
+	   	res.send(body);
+	});
+});
 app.all('/fetchCarsPost', function(req, res){
 	var data=req.body;
     request.post({
@@ -20,7 +32,7 @@ app.all('/fetchCarsPost', function(req, res){
 app.all('/getAirport', function(req, res){
     request.get({
 	  headers: {'content-type' : 'application/json'},
-	  url:     'http://54.208.111.147:8080/v1/place/airport ',
+	  url:     'http://54.208.111.147:8080/v1/place/airport',
 	}, function(error, response, body){
 	  console.log(body);
 	  res.send(body);

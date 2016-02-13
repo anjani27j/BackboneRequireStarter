@@ -63,7 +63,7 @@ define([
         // debugger;
       },
       'carsResultHandler': function(result){
-         debugger;
+         //debugger;
          if(result.models.length>0){
             if(result.models[0].get('errorCode')===""){
                window.location='#';

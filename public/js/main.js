@@ -15,5 +15,6 @@ require.config({
 
 //start the app
 require(['app'], function(App) {
+	window.isUserLogged = false;
 	App.initialize();
 });
