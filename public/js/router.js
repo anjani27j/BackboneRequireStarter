@@ -16,6 +16,13 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 		},
 		initialize : function() {
 			$('#sidebar-nav').hide();
+	  		$('#logOut').off().on('click',function(e){
+				e.preventDefault();
+				$('.navbar-right .navLogged').show();
+				$('.navbar-right .dropdown').hide();
+			    window.isUserLogged = false;
+			    Backbone.history.navigate("", {trigger: true});
+			})
 			require(['views/admin/sideMenuView'], function(SideMenuView) {
 				var sideMenuView = new SideMenuView();
 				sideMenuView.render();
