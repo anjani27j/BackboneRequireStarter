@@ -1,0 +1,27 @@
+<div id="passenger-detail-{{count}}" class="passenger-cls">
+<hr/>
+  <div class="form-group">
+    <label for="passenger-fname-{{count}}" class="col-sm-3 control-label">Passenger Name</label>
+    <div class="col-sm-9">
+      <input id="passenger-fname-{{count}}" placeholder="First Name" class="form-control col-sm-6" type="text" style="width: 45%;"/>
+      <input id="passenger-lname-{{count}}" placeholder="Last Name" class="form-control col-sm-6" type="text" style="width: 45%; margin-left: 10px;"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="passenger-email-{{count}}" class="col-sm-3 control-label">Passenger Email</label>
+    <div class="col-sm-9">
+      <input id="passenger-email-{{count}}" placeholder="Email" class="form-control col-sm-12" type="text" style="width: 45%;"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="passenger-phone-{{count}}" class="col-sm-3 control-label">Passenger Phone</label>
+    <div class="col-sm-9">
+      <input id="passenger-phone-{{count}}" placeholder="Phone"" class="form-control col-sm-12" type="text" style="width: 45%;"/>
+    </div>
+  </div>
+  <div class="btn-group pull-right" role="group" style="margin-top: -46px;">
+    <button class="btn btn-danger remove-pgr" id="remove-pgr-{{count}}" title="Remove Passenger">-</button>
+    <button class="btn btn-primary add-pgr" title="Add Passenger">+</button>
+  </div>
+  <hr/>
+</div>
