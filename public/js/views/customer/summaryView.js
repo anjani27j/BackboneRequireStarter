@@ -29,7 +29,6 @@ define([
       },
       render: function() {
          this.$el = $('#requestSummary');
-         debugger;
          this.$el.html(this.template(this.model.toJSON()));
          return this;
       }

@@ -17,7 +17,7 @@ define([
       },
       initialize: function() {
          this.template = Handlebars.compile(SearchResultTemplate);
-         this.cars = new Cars();
+         this.collection = new Cars();
          this.summaryView = new SummaryView();
       },
       fetchCars: function() {
@@ -46,7 +46,7 @@ define([
             this.summaryView.updateModel(queryData);
          }catch(error){}
 
-         this.cars.fetch({
+         this.collection.fetch({
             contentType:'application/json',
             type:'POST',
             beforeSend:_.bind(this.showLoading,this),
@@ -60,12 +60,12 @@ define([
         // debugger;
       },
       'hideLoading': function(){
-        // debugger;
+        //  gger;
       },
       'carsResultHandler': function(result){
-         //debugger;
-         if(result.models.length>0){
-            if(result.models[0].get('errorCode')===""){
+         this.models =result;
+         if(this.collection.models.length>0){
+            if(result.models[0].get('timeStamp')){
                window.location='#';
             }else{
                this.render();
@@ -73,7 +73,6 @@ define([
          }
       },
       'renderError': function(err){
-         debugger;
          window.location='#';
       },
 
@@ -81,22 +80,28 @@ define([
          this.$el.removeClass('dashboard');
          this.$el.addClass('width90'); 
          this.$el.addClass('main-container-top-margin');
-         this.$el.html(this.template(this.cars.toJSON()));
+         this.$el.html(this.template(this.collection.toJSON()));
          this.$el.find('#sidebar-nav').hide();
+         this.summaryView.cars= this.collection;
          this.summaryView.render();
          return this;
       },
       'reserveNowclickHandler': function(event){
-         var vehicleTypeId=parseInt($(event.currentTarget).attr('vehicle_type_id')),
-         self = this;
-         _.each(this.cars.models,function(car){
-            if(vehicleTypeId===car.get('vehicle_type_id')){
-               self.summaryView.model = car;
-            }
-         });
-         this.customerView = new CustomerView();
-         this.customerView.car=this.summaryView.model;
-         this.customerView.render();
+         if(this.collection.models.length>0){
+            if(this.collection.models[0].get('timeStamp')===undefined){
+               var vehicleTypeId=parseInt($(event.currentTarget).attr('vehicle_type_id')),
+               self = this;
+               _.each(this.collection.models,function(car){
+                  if(vehicleTypeId===car.get('vehicle_type_id')){
+                     self.summaryView.car = car;
+                  }
+               });
+               this.customerView = new CustomerView();
+               this.customerView.car=this.summaryView.car; 
+               this.customerView.summaryView=this.summaryView;
+               this.customerView.render();
+            } 
+         }
       }
   }); 
   return searchResultView;

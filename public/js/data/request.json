@@ -12,13 +12,14 @@
 }
 {
     "serviceType": "to_airport",
+    "serviceName": "to_airport",
     "numOfPassenger": "1",
     "pickupDate": "02/05/2016 19:00",
     "pickupLocation": "Milford, CT, United States",
-    "pickupLocationZip": "",
+    "pickupLocationZip": "06460",
     "pickupLocationId": -1,
     "dropoffLocation": "John F. Kennedy International Airport",
     "dropOffLocation_id": 1,
-    "dropOffLocationZip": "",
+    "dropOffLocationZip": "11430",
     "distanceMiles": 0
 }

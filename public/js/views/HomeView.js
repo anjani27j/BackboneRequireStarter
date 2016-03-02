@@ -10,7 +10,7 @@ define(['jquery', 'backbone', 'handlebars', 'collections/tweet', 'text!templates
          this.listenTo(this.collection, 'reset add change remove', this.render, this);
          var self = this;
          this.collection.fetch({
-            success: function(){debugger;
+            success: function(){
                self.render();
             }
          });

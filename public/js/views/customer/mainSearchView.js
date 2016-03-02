@@ -40,7 +40,6 @@ define([
          return this;
       },
       updateLocations : function(selector){
-         debugger;
          var options = '';
          $.each(this.locations.models,function(i,location){
             options += '<option value="'+location.get('placeId')+'" zipCode="'+location.get('zipCode')+'">'+location.get('placeName')+'</option>'
