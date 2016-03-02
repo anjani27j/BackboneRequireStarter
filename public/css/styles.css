@@ -9,6 +9,7 @@ body {
   font-family: Georgia, "Times New Roman", Times, serif;
   color: #555;
   background-color: #f7f7f7;
+  padding-top: 50px;
 }
 
 h1, .h1,
@@ -31,11 +32,11 @@ a {
  * Override Bootstrap's default container.
  */
 
-@media (min-width: 1200px) {
+/*@media (min-width: 1200px) {
   .container {
     width: 970px;
   }
-}
+}*/
 
 
 /*
@@ -142,11 +143,11 @@ a {
 
 .total-row {text-align: center;padding: 6px 0px;display: block;}
 .dashboard{
-  width:80%;
+  margin-top: 20px;
+  /*width:80%;
   margin-left: 177px;
-  border-left: 1px solid #dae3e9;
   margin-top: 62px; 
-  position: absolute;
+  position: absolute;*/
 }
 .width90{
   width: 90%;
@@ -223,3 +224,9 @@ a {
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
   color: #9d9d9d;
 }
+
+
+/*new css for dashboard*/
+
+.dashboardUl li { background: #f7f7f7; }
+.dashboardUl li:nth-child(odd) { background: #ddd; }

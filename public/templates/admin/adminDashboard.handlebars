@@ -1,4 +1,96 @@
+<div class="container">
+  <div class="panel panel-default">
+    <ul class="list-group dashboardUl">
     {{#each data}}
+      <li class="list-group-item">
+        <div class="row toggle" id="dropdown-detail-3" data-toggle="detail-3">
+          <div class="col-md-1 col-sm-2 col-xs-3 small">
+            <div>Dec 26</div>
+            <div>3:30AM</div>
+          </div>
+          <div class="col-md-2 col-sm-5 col-xs-5">
+            <div>Trip# {{this.confirmation_code}}</div>
+            <div>
+              <a href="#orders/{{this.id}}">{{this.full_name}}</a>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-5 small col-xs-4">
+            <div class="nowrap">
+              <span class="text-bdold text-mudted ldabel ladbel-default">{{this.service_name}}</span>
+              <span class="text-muted"> with </span>
+              <span class="text-bdold text-mudted labdel ladbel-default">{{this.vehicle_type_name}}</span>
+            </div>
+            {{#if this.airline}}
+              <div>
+                <span class="text-mfuted"><i class="fa fa-plane"> </i>{{this.airline}}</span>
+              </div>
+            {{/if}}
+            <div class="m-t-xs">
+              <span class="label {{#getBookingStatus this.status}}{{/getBookingStatus}}">{{this.status}}</span>
+              {{#ifCond this.status '!=' 'Cancelled'}}
+                <span class="label {{#getBookingStatus this.trip_status_name}}{{/getBookingStatus}}">
+                  {{this.trip_status_name}}
+                </span>
+              {{/ifCond}}
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-8 small">
+            <div class="text-mudted">
+              <i class="text-success fa fa-map-marker"></i>
+              <!-- show if drop <i class="text-danger fa fa-map-marker"></i> -->
+              <!-- show if stop<i class="text-info fa fa-map-marker"></i> -->
+              115 Roseville Road, Westport
+            </div>
+            <div class="text-mudted">
+              <!-- show if pickup <i class="text-success fa fa-map-marker"></i> -->
+              <i class="text-danger fa fa-map-marker"></i>
+              <!-- show if stop<i class="text-info fa fa-map-marker"></i> -->
+              LaGuardia Airport
+            </div>
+            <ul class="nav nav-pills both-clear">
+              <li class="m-r-md">
+                <i class="fa fa-user"></i> ELKHOU OSAMA  NY ( SUV ) Chev 2015
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-1 col-sm-4" >
+            <span class="p-t-md total-row">
+              <!-- show if payment outstanding -->
+              <span class="text-bold">$254.00</span>
+              <!-- if pending <span class="text-bold text-warning">$254.00</span> -->
+              <!-- if paid<span class="text-bold text-success">$254.00</span> -->
+              <br>
+              <span class=""><i class="fa fa-credit-card"></i> </span>
+            </span>
+          </div>
+          <div class="" style="position: absolute;top: 0;right: 0;height: 100%;background: red;">
+            <i id="dropdownArrow" class="fa fa-chevron-right pull-right" style="top: 38%;position: relative;margin-left: 2px;"></i>
+          </div>
+        </div>
+        <div id="detail-3">
+          <hr></hr>
+          <div class="container">
+            <div class="fluid-row">
+              <div class="col-xs-1">Detail:</div>
+              <div class="col-xs-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+            </div>
+          </div>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
+
+
+
+
+
+
+    
+
+
+    
 
 <div class="list-group-item  tight-list-group-item a-link order-list-group">
   <div class="row tight-row">
@@ -133,4 +225,4 @@
         </div>
       </div>
     </div>
-    {{/each}}
+    
