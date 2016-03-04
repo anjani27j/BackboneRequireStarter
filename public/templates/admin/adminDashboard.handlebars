@@ -3,29 +3,31 @@
     <ul class="list-group dashboardUl">
     {{#each data}}
       <li class="list-group-item">
-        <div class="row toggle" id="dropdown-detail-3" data-toggle="detail-3">
+        <div class="row toggle" id="dropdown-detail-{{this.reservation_id}}" data-toggle="detail-{{this.reservation_id}}">
           <div class="col-md-1 col-sm-2 col-xs-3 small">
-            <div>Dec 26</div>
-            <div>3:30AM</div>
+            <div>{{this.pick_up_date}}</div>
+            <div>ask for time</div>
           </div>
           <div class="col-md-2 col-sm-5 col-xs-5">
-            <div>Trip# {{this.confirmation_code}}</div>
+            <div>Trip# {{this.reservation_code}}</div>
             <div>
-              <a href="#orders/{{this.id}}">{{this.full_name}}</a>
+              <a href="#orders/{{this.id}}">{{this.customer.first_name}} {{this.customer.last_name}}</a>
             </div>
           </div>
           <div class="col-md-4 col-sm-5 small col-xs-4">
             <div class="nowrap">
-              <span class="text-bdold text-mudted ldabel ladbel-default">{{this.service_name}}</span>
+              <span class="text-bdold text-mudted ldabel ladbel-default">no service data</span>
               <span class="text-muted"> with </span>
-              <span class="text-bdold text-mudted labdel ladbel-default">{{this.vehicle_type_name}}</span>
+              <span class="text-bdold text-mudted labdel ladbel-default">no vehicle data</span>
             </div>
+            discuss about airline data
             {{#if this.airline}}
               <div>
                 <span class="text-mfuted"><i class="fa fa-plane"> </i>{{this.airline}}</span>
               </div>
             {{/if}}
             <div class="m-t-xs">
+            check on booking status
               <span class="label {{#getBookingStatus this.status}}{{/getBookingStatus}}">{{this.status}}</span>
               {{#ifCond this.status '!=' 'Cancelled'}}
                 <span class="label {{#getBookingStatus this.trip_status_name}}{{/getBookingStatus}}">
@@ -67,12 +69,18 @@
             <i id="dropdownArrow" class="fa fa-chevron-right pull-right" style="top: 38%;position: relative;margin-left: 2px;"></i>
           </div>
         </div>
-        <div id="detail-3">
+        <div id="detail-{{this.reservation_id}}">
           <hr></hr>
           <div class="container">
             <div class="fluid-row">
-              <div class="col-xs-1">Detail:</div>
-              <div class="col-xs-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+              <div class="col-md-2 col-sm-5 col-xs-5">
+                <div>Phone</div>
+                <div>{{this.customer.mobile_number}}</div>
+              </div>
+              <div class="col-md-2 col-sm-5 col-xs-5">
+                <div>Email</div>
+                <div>{{this.customer.email_id}}</div>
+              </div>
             </div>
           </div>
         </div>

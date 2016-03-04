@@ -29,6 +29,17 @@ app.all('/fetchCarsPost', function(req, res){
 	   res.send(body);
 	});
 });
+app.all('/getAllReservations', function(req, res){
+	var data=req.body;
+    request.post({
+	  headers: {'content-type' : 'application/json'},
+	  url:     'http://54.208.111.147:8080/v1/reservations?offset=0&limit=3',
+	  body:    JSON.stringify(data)
+	}, function(error, response, body){
+	  console.log(body);
+	   res.send(body);
+	});
+});
 app.all('/getAirport', function(req, res){
     request.get({
 	  headers: {'content-type' : 'application/json'},

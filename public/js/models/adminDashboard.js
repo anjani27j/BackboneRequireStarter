@@ -1,6 +1,6 @@
 define(function() {
    var AdminDashboardModel = Backbone.Model.extend({
-   		url: 'js/data/dashboard.json',
+   		url: 'getAllReservations',
       	initialize: function() {
       	}
    });
