@@ -18,6 +18,29 @@ app.all('/signUp', function(req, res){
 	   	res.send(body);
 	});
 });
+app.all('/proxy/*', function(req, res){
+	var base_url = req.url.replace('/proxy/','');
+	base_url = 'http://54.208.111.147:8080/'+base_url;
+	console.log(base_url);
+	console.log(req.method);
+	if(req.method==='GET'){
+		request.get({
+		  headers: {'content-type' : 'application/json'},
+		  url: base_url,
+		}, function(error, response, body){
+		  res.send(body);
+		});
+	}else if(req.method  ==='POST'){
+		var data=req.body;
+	    request.post({
+		  headers: {'content-type' : 'application/json'},
+		  url:     base_url,
+		  body:    JSON.stringify(data)
+		}, function(error, response, body){
+		   res.send(body);
+		});
+	}
+});
 app.all('/fetchCarsPost', function(req, res){
 	var data=req.body;
     request.post({

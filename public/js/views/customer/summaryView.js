@@ -15,17 +15,17 @@ define([
          this.model = new SearchSummary();
       },
       updateModel : function(options){
-         this.model.set('serviceType',options.serviceType);
-         this.model.set('serviceName',options.serviceName);
-         this.model.set('numOfPassenger',options.numOfPassenger);
-         this.model.set('pickupDate',options.pickupDate);
-         this.model.set('pickupLocation',options.pickupLocation);
-         this.model.set('pickupLocationZip',options.pickupLocationZip);
-         this.model.set('pickupLocationId',options.pickupLocationId);
-         this.model.set('dropoffLocation',options.dropoffLocation);
-         this.model.set('dropOffLocation_id',options.dropOffLocation_id);
-         this.model.set('dropOffLocationZip',options.dropOffLocationZip);
-         this.model.set('distanceMiles',options.distanceMiles);
+         this.model.set('service_type',options.service_type);
+         this.model.set('service_name',options.service_name);
+         this.model.set('num_of_assenger',options.num_of_assenger);
+         this.model.set('pickup_date',options.pickup_date);
+         this.model.set('pickup_location',options.pickup_location);
+         this.model.set('pickup_location_zip',options.pickup_location_zip);
+         this.model.set('pickup_location_id',options.pickup_location_id);
+         this.model.set('dropoff_location',options.dropoff_location);
+         this.model.set('drop_off_ocation_id',options.drop_off_ocation_id);
+         this.model.set('drop_off_location_zip',options.drop_off_location_zip);
+         this.model.set('distance_miles',options.distance_miles);
       },
       render: function() {
          this.$el = $('#requestSummary');

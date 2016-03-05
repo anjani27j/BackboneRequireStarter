@@ -23,6 +23,12 @@ define([
       render: function() {
          this.car.set('pickupDate',this.summaryView.model.get('pickupDate'));
          this.$el.html(this.template(this.car.toJSON()));
+         //change breadcromb
+         $('#car-details-breadcrumb').removeClass('btn-success');
+         $('#car-details-breadcrumb').removeClass('auto-cursor');
+         $('#car-details-breadcrumb').addClass('btn-primary');
+         $('#request-details-breadcrumb').removeClass('btn-info');
+         $('#request-details-breadcrumb').addClass('btn-success');
       },
       addPassenger: function(event){
          event.preventDefault();

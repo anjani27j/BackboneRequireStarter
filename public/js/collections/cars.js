@@ -3,12 +3,9 @@ define(['models/car'], function(Car) {
 
       model: Car,
       //url: '/js/data/carsData.json',
-      url : '/fetchCarsPost',
+      url : '/proxy/v1/service/viewrates',
       initialize : function() {
-      	console.log('Collection Initialized');
-      /*	$.ajaxSetup({
-      		'cache':false
-      	});*/
+            console.log('Collection Initialized');
       }
 
    });

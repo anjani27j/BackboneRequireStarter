@@ -3,12 +3,13 @@
     <p class="pull-right visible-xs">
       <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
     </p>
-    <div class="row "> 
-      <nav class="navbar navbar-default" style="padding-top:13px;">
-        <div class="col-md-4 "><span class="wizard-font">SERVICE DETAILS</span></div>
-        <div class="col-md-4 wizard-font">REQUEST DETAILS</div>
-        <div class="col-md-4 wizard-font">CONFIRM</div>
-      </nav>
+    <div class="row ">
+      <div class="btn-group btn-breadcrumb">
+        <a href="#" class="btn btn-primary col-xs-1"><i class="glyphicon glyphicon-home"></i></a>
+        <label id="car-details-breadcrumb"  class="btn btn-success col-xs-4 auto-cursor" >CAR DETAILS</label>
+        <label id="request-details-breadcrumb" class="btn btn-info col-xs-4 auto-cursor" >REQUEST DETAILS</label>
+        <label id="confirm-breadcrumb" class="btn btn-info col-xs-3 auto-cursor" >CONFIRM</label>
+      </div>
     </div><!--/row-->
     <div class="row" id="requestContainer">
       <div style="padding-bottom:10px;">Select a vehicle below to book your reservation</div>

@@ -3,7 +3,7 @@ define(['models/location'], function(Location) {
 
       model: Location,
 
-      url: '/getAirport',
+      url: '/proxy/v1/place/airport',
 
       initialize : function() {
       	console.log('Collection Initialized');

@@ -24,25 +24,27 @@ define([
          var queryData={},
          self = this;
          try{
-            queryData.serviceType=$('#selectService')[0].selectedOptions[0].value;
-            queryData.serviceName=$('#selectService')[0].selectedOptions[0].value;
-            queryData.numOfPassenger=$('#passengersCount')[0].selectedOptions[0].value;
-            queryData.pickupDate=$('#datepicker').val();
+            queryData.service_type=$('#selectService')[0].selectedOptions[0].value;
+            queryData.service_name=$('#selectService')[0].selectedOptions[0].value;
+            queryData.num_of_passenger=$('#passengersCount')[0].selectedOptions[0].value;
+            queryData.pickup_date=$('#datepicker').val();
             if($('.pickup-auto').hasClass('hide')){
-               queryData.pickupLocation =$('#pickupAtFixed')[0].selectedOptions[0].text;
+               queryData.pickup_location =$('#pickupAtFixed')[0].selectedOptions[0].text;
+              //queryData.pickup_location_zip=$.trim($($('#pickupAtFixed')[0].selectedOptions).attr('zip_code'));
             }else{
-               queryData.pickupLocation= $('#pickupAtAuto').val();
+               queryData.pickup_location= $('#pickupAtAuto').val();
             }
-            queryData.pickupLocationZip='06460';
-            queryData.pickupLocationId=-1;
+            debugger; 
+            queryData.pickup_location_zip ='06460';
+            queryData.pickup_location_id=-1;
             if($('.dropoff-auto').hasClass('hide')){
-               queryData.dropoffLocation=$('#dropoffAtFixed')[0].selectedOptions[0].text;
+               queryData.dropoff_location=$('#dropoffAtFixed')[0].selectedOptions[0].text;
             }else{
-               queryData.dropoffLocation=$('#dropoffAtAuto').val();
+               queryData.dropoff_location=$('#dropoffAtAuto').val();
             }
-            queryData.dropOffLocation_id=1;
-            queryData.dropOffLocationZip='11430';
-            queryData.distanceMiles=0;
+            queryData.drop_off_location_id=1;
+            queryData.drop_off_location_zip='11430';
+            queryData.distance_miles=0;
             this.summaryView.updateModel(queryData);
          }catch(error){}
 
@@ -65,7 +67,7 @@ define([
       'carsResultHandler': function(result){
          this.models =result;
          if(this.collection.models.length>0){
-            if(result.models[0].get('timeStamp')){
+            if(result.models[0].get('time_stamp')){
                window.location='#';
             }else{
                this.render();
@@ -88,7 +90,7 @@ define([
       },
       'reserveNowclickHandler': function(event){
          if(this.collection.models.length>0){
-            if(this.collection.models[0].get('timeStamp')===undefined){
+            if(this.collection.models[0].get('time_stamp')===undefined){
                var vehicleTypeId=parseInt($(event.currentTarget).attr('vehicle_type_id')),
                self = this;
                _.each(this.collection.models,function(car){

@@ -23,6 +23,7 @@ define([
          this.listenTo(this.locations, 'update locations', this.updateLocations, this);
          var self = this;
          this.locations.fetch({
+            type:'GET',
             success: function(){
                self.updateLocations();
             }
@@ -42,19 +43,19 @@ define([
       updateLocations : function(selector){
          var options = '';
          $.each(this.locations.models,function(i,location){
-            options += '<option value="'+location.get('placeId')+'" zipCode="'+location.get('zipCode')+'">'+location.get('placeName')+'</option>'
+            options += '<option value="'+location.get('place_id')+'" zip_code="'+location.get('zip_code')+'">'+location.get('place_name')+'</option>'
          })
-         if(selector === undefined){
-            $('#dropoffAtFixed').html(options);
-         }else{
+         if(selector){
             $('#'+selector).html(options);
+         }else{
+            $('#dropoffAtFixed').html(options);
          }
       },
       selectServiceHandler: function(event){
-         var selectedOption= parseInt($(event.currentTarget)[0].selectedOptions[0].value);
+         var selectedOption= $(event.currentTarget)[0].selectedOptions[0].value;
          this.model.set('car_service_code',selectedOption);
          switch(selectedOption){
-            case 1:
+            case 'to_airport':
                $('.pickup-auto').removeClass('hide');
                $('.dropoff-fixed').removeClass('hide');
                $('.pickup-fixed').addClass('hide');
@@ -65,7 +66,7 @@ define([
                this.initGoogleMap('pickupAtAuto');
                this.updateLocations('dropoffAtFixed');
                break;
-            case 2:
+            case 'from_airport':
                $('.pickup-auto').addClass('hide');
                $('.dropoff-fixed').addClass('hide');
                $('.pickup-fixed').removeClass('hide');
@@ -76,7 +77,7 @@ define([
                this.initGoogleMap('dropoffAtAuto');
                this.updateLocations('pickupAtFixed');
                break;
-            case 3:
+            case 'roundtrip_to_airport':
                $('.roundtrip').removeClass('hide');
                $('.pickup-auto').removeClass('hide');
                $('.dropoff-fixed').removeClass('hide');
@@ -95,7 +96,7 @@ define([
                this.updateLocations('dropoffAtFixed');
                this.updateLocations('returnPickupAtFixed');
                break;
-            case 4:
+            case 'roundtrip_from_airport':
                $('.roundtrip').removeClass('hide');
                $('.pickup-auto').addClass('hide');
                $('.dropoff-fixed').addClass('hide');
@@ -114,7 +115,7 @@ define([
                this.updateLocations('pickupAtFixed');
                this.updateLocations('returnDropoffAtFixed');
                break;
-            case 5:
+            case 'one_way':
                $('.pickup-auto').removeClass('hide');
                $('.dropoff-fixed').addClass('hide');
                $('.pickup-fixed').addClass('hide');
@@ -125,7 +126,7 @@ define([
                this.dropoffid='dropoffAtAuto';
                this.pickupid='pickupAtAuto';
                break;
-            case 6:
+            case 'to_train':
                $('.pickup-auto').removeClass('hide');
                $('.dropoff-fixed').removeClass('hide');
                $('.pickup-fixed').addClass('hide');
@@ -136,7 +137,7 @@ define([
                this.initGoogleMap('pickupAtAuto');
                this.updateLocations('dropoffAtFixed');
                break;
-            case 7:
+            case 'from_train':
                $('.pickup-auto').addClass('hide');
                $('.dropoff-fixed').addClass('hide');
                $('.pickup-fixed').removeClass('hide');
