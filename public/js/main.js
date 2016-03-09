@@ -9,7 +9,8 @@ require.config({
 		text : '../bower_components/requirejs-text/text',
 		templates : '../templates',
 		datetimepicker: '../bower_components/datetimepicker/jquery.datetimepicker',
-		globalHandlebarsHelper: 'GlobalHandlebarsHelper'
+		globalHandlebarsHelper: 'GlobalHandlebarsHelper',
+		dataTable: 'https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min'
 	}
 });
 

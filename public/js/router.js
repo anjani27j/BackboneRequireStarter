@@ -8,7 +8,8 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 			'signin' : 'showSignIn',
 			'signup' : 'showSignUp',
 			'forgotpwd' : 'showForgotPwd',
-			'myAccount' : 'showMyAccount'
+			'myAccount' : 'showMyAccount',
+			'reservations' : 'showReservations'
 		},
 		execute: function(callback, args, name) {
 			$('#sidebar-nav').hide();
@@ -83,6 +84,15 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 			require(['views/admin/adminDashboardView'], function(AdminDashboardView) {
 				var adminDashboardView = new AdminDashboardView();
 				adminDashboardView.render();
+			})
+		},
+		showReservations :function() {
+			$('.navbar').show();
+			$('#main-container').removeClass().addClass('container dashboard');
+			var self = this;
+			require(['views/admin/adminReservationsView'], function(AdminReservationsView) {
+				var adminReservationsView = new AdminReservationsView();
+				adminReservationsView.render();
 			})
 		},
 		showOrderDetails : function() {

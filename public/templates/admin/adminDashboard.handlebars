@@ -6,7 +6,6 @@
         <div class="row toggle" id="dropdown-detail-{{this.reservation_id}}" data-toggle="detail-{{this.reservation_id}}">
           <div class="col-md-1 col-sm-2 col-xs-3 small">
             <div>{{this.pick_up_date}}</div>
-            <div>ask for time</div>
           </div>
           <div class="col-md-2 col-sm-5 col-xs-5">
             <div>Trip# {{this.reservation_code}}</div>
@@ -58,7 +57,7 @@
           <div class="col-md-1 col-sm-4" >
             <span class="p-t-md total-row">
               <!-- show if payment outstanding -->
-              <span class="text-bold">$254.00</span>
+              <span class="text-bold">${{this.invoice_total}}</span>
               <!-- if pending <span class="text-bold text-warning">$254.00</span> -->
               <!-- if paid<span class="text-bold text-success">$254.00</span> -->
               <br>

@@ -17,6 +17,9 @@ define([
       },
       render: function() {
          if(!_.isEmpty(this.model.attributes)){
+            $('#sidebar-nav').show();
+            $('#dashboard-menu li').removeClass('active');
+            $("a[href='#dashboard']").parent().addClass('active');
             this.$el.html(this.template({data:this.model.attributes}));
             $('[id^=detail-]').hide();
             $('.toggle').click(function() {
@@ -32,8 +35,6 @@ define([
                }
                
             });
-            $("a[href='#dashboard']").append('<div class="pointer"><div class="arrow"></div><div class="arrow_border"></div></div>')
-            $('#sidebar-nav').show();
             return this;
          }
       }

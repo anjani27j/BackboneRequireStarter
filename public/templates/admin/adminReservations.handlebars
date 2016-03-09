@@ -1,0 +1,24 @@
+<table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Reservation Id</th>
+                <th>Pickup Date</th>
+                <th>Created Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+                <tr>
+                    <td>{{this.customer.first_name}} {{this.customer.last_name}}</td>
+                    <td>No Data</td>
+                    <td>No Data</td>
+                    <td>{{this.reservation_code}}</td>
+                    <td>{{this.pick_up_date}}</td>
+                    <td>{{this.reservation_date}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
