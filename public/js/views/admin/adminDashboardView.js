@@ -28,10 +28,8 @@ define([
                $target.slideToggle();
                if($( this ).find('#dropdownArrow').hasClass('fa-chevron-right')){
                   $( this ).find('#dropdownArrow').removeClass('fa-chevron-right').addClass('fa-chevron-down');
-                  $( this ).find('#dropdownArrow').parent()[0].style.background='blue'
                }else{
                   $( this ).find('#dropdownArrow').removeClass('fa-chevron-down').addClass('fa-chevron-right');
-                  $( this ).find('#dropdownArrow').parent()[0].style.background='red'
                }
                
             });
