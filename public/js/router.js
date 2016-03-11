@@ -4,7 +4,7 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 			'' : 'showSearch',
 			'searchResult' : 'showSearchResult',
 			'dashboard' : 'showAdminDashboard',
-			'orders/:id' : 'showOrderDetails',
+			'reservation/:id' : 'showReservationDetails',
 			'signin' : 'showSignIn',
 			'signup' : 'showSignUp',
 			'forgotpwd' : 'showForgotPwd',
@@ -95,8 +95,9 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 				adminReservationsView.render();
 			})
 		},
-		showOrderDetails : function() {
+		showReservationDetails : function() {
 			$('.navbar').show();
+			$('#main-container').removeClass().addClass('container dashboard');
 			var self = this;
 			require(['views/admin/adminOrderDetailsView'], function(AdminOrderDetailsView) {
 				var adminOrderDetailsView = new AdminOrderDetailsView();

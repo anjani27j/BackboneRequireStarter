@@ -10,7 +10,7 @@
           <div class="col-md-2 col-sm-5 col-xs-5">
             <div>Trip# {{this.reservation_code}}</div>
             <div>
-              <a href="#orders/{{this.id}}">{{this.customer.first_name}} {{this.customer.last_name}}</a>
+              <a href="#reservation/{{this.reservation_code}}">{{this.customer.first_name}} {{this.customer.last_name}}</a>
             </div>
           </div>
           <div class="col-md-4 col-sm-5 small col-xs-4">
@@ -76,9 +76,21 @@
                 <div>Phone</div>
                 <div>{{this.customer.mobile_number}}</div>
               </div>
-              <div class="col-md-2 col-sm-5 col-xs-5">
+              <div class="col-md-3 col-sm-6 col-xs-6">
                 <div>Email</div>
                 <div>{{this.customer.email_id}}</div>
+              </div>
+              <div class="col-md-2 col-sm-5 col-xs-5">
+                <div>Passengers</div>
+                <div>{{this.passenger_numbers}}</div>
+              </div>
+              <div class="col-md-2 col-sm-5 col-xs-5">
+                <div>Distance</div>
+                <div>calculate at FE?</div>
+              </div>
+              <div class="col-md-2 col-sm-5 col-xs-5">
+                <div>Payment Status</div>
+                <div>{{this.invoice_status}}</div>
               </div>
             </div>
           </div>

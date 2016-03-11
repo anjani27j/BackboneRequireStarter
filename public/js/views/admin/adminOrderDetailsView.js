@@ -17,9 +17,10 @@ define([
       },
       render: function() {
          if(!_.isEmpty(this.model.attributes)){
-            this.$el.html(this.template({data:this.model.attributes}));
-            $("a[href='#reservations']").append('<div class="pointer"><div class="arrow"></div><div class="arrow_border"></div></div>')
             $('#sidebar-nav').show();
+            $('#dashboard-menu li').removeClass('active');
+            $("a[href='#reservations']").parent().addClass('active');
+            this.$el.html(this.template({data:this.model.attributes}));
             return this;
          }
       }
