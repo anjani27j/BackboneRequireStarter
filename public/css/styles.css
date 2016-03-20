@@ -232,3 +232,15 @@ a {
 .dashboardUl li { background: #fff; }
 .dashboardUl li:nth-child(odd) { background: #f9f9f9; }
 .list-group { border-top: 1px solid grey;border-bottom: 1px solid grey; }
+.tripLink{
+    border: solid 1px #b93404;
+    border-radius: 5px;
+    padding: 2px;
+    margin-bottom: 5px;
+    text-align: center;
+    background-color: #cb3904;
+    color: #fff;
+}
+.noUnderline a:hover{
+    text-decoration: none;
+}

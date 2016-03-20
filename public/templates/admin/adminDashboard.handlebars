@@ -7,11 +7,9 @@
           <div class="col-md-1 col-sm-2 col-xs-3 small">
             <div>{{this.pick_up_date}}</div>
           </div>
-          <div class="col-md-2 col-sm-5 col-xs-5">
-            <div>Trip# {{this.reservation_code}}</div>
-            <div>
-              <a href="#reservation/{{this.reservation_code}}">{{this.customer.first_name}} {{this.customer.last_name}}</a>
-            </div>
+          <div class="col-md-2 col-sm-5 col-xs-5 noUnderline">
+            <a href="#reservation/{{this.reservation_code}}"><div class="tripLink">Trip# {{this.reservation_code}}</div></a>
+            <div>{{this.customer.first_name}} {{this.customer.last_name}}</div>
           </div>
           <div class="col-md-4 col-sm-5 small col-xs-4">
             <div class="nowrap">

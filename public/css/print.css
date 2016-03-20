@@ -1,0 +1,4 @@
+/*in this file add classes to handle print view of pages*/
+.noprint{
+	display: none;
+}
