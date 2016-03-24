@@ -1,15 +1,14 @@
-<div class="container">
-  <div class="panel panel-default">
-    <ul class="list-group dashboardUl">
-    {{#each data}}
-      <li class="list-group-item">
-        <div class="row toggle" id="dropdown-detail-{{this.reservation_id}}" data-toggle="detail-{{this.reservation_id}}">
+<div class="container-fluid">
+  {{#each data}}
+  <div class = "panel panel-success">
+   <div class = "panel-heading">
+      <div class="row">
           <div class="col-md-1 col-sm-2 col-xs-3 small">
             <div>{{this.pick_up_date}}</div>
           </div>
           <div class="col-md-2 col-sm-5 col-xs-5 noUnderline">
-            <a href="#reservation/{{this.reservation_code}}"><div class="tripLink">Trip# {{this.reservation_code}}</div></a>
-            <div>{{this.customer.first_name}} {{this.customer.last_name}}</div>
+            <a href="#reservation/{{this.reservation_code}}"><div class="btn btn-primary">Trip# {{this.reservation_code}}</div></a>
+            <div style="margin-top:8px;">{{this.customer.first_name}} {{this.customer.last_name}}</div>
           </div>
           <div class="col-md-4 col-sm-5 small col-xs-4">
             <div class="nowrap">
@@ -24,7 +23,7 @@
               </div>
             {{/if}}
             <div class="m-t-xs">
-            check on booking status
+              check on booking status
               <span class="label {{#getBookingStatus this.status}}{{/getBookingStatus}}">{{this.status}}</span>
               {{#ifCond this.status '!=' 'Cancelled'}}
                 <span class="label {{#getBookingStatus this.trip_status_name}}{{/getBookingStatus}}">
@@ -34,23 +33,32 @@
             </div>
           </div>
           <div class="col-md-4 col-sm-8 small">
-            <div class="text-mudted">
+            <div class="text-muted">
               <i class="text-success fa fa-map-marker"></i>
               <!-- show if drop <i class="text-danger fa fa-map-marker"></i> -->
               <!-- show if stop<i class="text-info fa fa-map-marker"></i> -->
               115 Roseville Road, Westport
             </div>
-            <div class="text-mudted">
+            <div class="text-muted">
               <!-- show if pickup <i class="text-success fa fa-map-marker"></i> -->
               <i class="text-danger fa fa-map-marker"></i>
               <!-- show if stop<i class="text-info fa fa-map-marker"></i> -->
               LaGuardia Airport
             </div>
-            <ul class="nav nav-pills both-clear">
-              <li class="m-r-md">
-                <i class="fa fa-user"></i> ELKHOU OSAMA  NY ( SUV ) Chev 2015
-              </li>
-            </ul>
+            <div class="btn-group" style="margin-top: 8px;"> 
+              <button type="button" class="btn btn-primary"><i class="fa fa-user"></i> {{this.driver.first_name}}{{this.driver.last_name}}</button> 
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                <span class="caret"></span> 
+                <span class="sr-only">Toggle Dropdown</span> 
+              </button> 
+              <ul class="dropdown-menu"> 
+                <li><a href="#">Driver 1</a></li>
+                <li><a href="#">Driver 2</a></li>
+                <li><a href="#">Driver 3</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Driver 4</a></li> 
+              </ul> 
+            </div>
           </div>
           <div class="col-md-1 col-sm-4" >
             <span class="p-t-md total-row">
@@ -62,39 +70,33 @@
               <span class=""><i class="fa fa-credit-card"></i> </span>
             </span>
           </div>
-          <div class="" style="position: absolute;top: 0;right: 0;height: 100%;">
-            <i id="dropdownArrow" class="fa fa-chevron-right pull-right" style="top: 38%;position: relative;margin-left: 2px;"></i>
+        </div>
+   </div>
+   
+   <div class = "panel-body">
+      <div class="row">
+          <div class="col-md-2 col-sm-5 col-xs-5">
+            <div>Phone</div>
+            <div>{{this.customer.mobile_number}}</div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-6">
+            <div>Email</div>
+            <div>{{this.customer.email_id}}</div>
+          </div>
+          <div class="col-md-2 col-sm-5 col-xs-5">
+            <div>Passengers</div>
+            <div>{{this.passenger_numbers}}</div>
+          </div>
+          <div class="col-md-2 col-sm-5 col-xs-5">
+            <div>Distance</div>
+            <div>calculate at FE?</div>
+          </div>
+          <div class="col-md-2 col-sm-5 col-xs-5">
+            <div>Payment Status</div>
+            <div>{{this.invoice_status}}</div>
           </div>
         </div>
-        <div id="detail-{{this.reservation_id}}">
-          <hr></hr>
-          <div class="container">
-            <div class="fluid-row">
-              <div class="col-md-2 col-sm-5 col-xs-5">
-                <div>Phone</div>
-                <div>{{this.customer.mobile_number}}</div>
-              </div>
-              <div class="col-md-3 col-sm-6 col-xs-6">
-                <div>Email</div>
-                <div>{{this.customer.email_id}}</div>
-              </div>
-              <div class="col-md-2 col-sm-5 col-xs-5">
-                <div>Passengers</div>
-                <div>{{this.passenger_numbers}}</div>
-              </div>
-              <div class="col-md-2 col-sm-5 col-xs-5">
-                <div>Distance</div>
-                <div>calculate at FE?</div>
-              </div>
-              <div class="col-md-2 col-sm-5 col-xs-5">
-                <div>Payment Status</div>
-                <div>{{this.invoice_status}}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </li>
-      {{/each}}
-    </ul>
-  </div>
+   </div>
+</div>
+  {{/each}}
 </div>
