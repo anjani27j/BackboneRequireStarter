@@ -55,8 +55,8 @@
         <div class="panel panel-default">
           <div class="panel-heading" role="tab" id="headingOne">
             <h4 class="panel-title">
-              <a role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" aria-controls="collapseOne">
-                Trip on : {{pickupDate}}
+              <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Trip on : {{pickup_date}}
               </a>
             </h4>
           </div>
@@ -70,7 +70,7 @@
                 </li>
                 {{#optional_fixed_rate_items}}
                   <li class="list-group-item">
-                    <input type="checkbox" id="addon-{{addon_id}}" />
+                    <input type="checkbox" id="addon-{{addon_id}}" name="optional_rate"/>
                     <label class="control-label">{{addon_name}}</label> 
                     <span class="label label-default pull-right">${{amount}}</span>
                   </li>
@@ -100,28 +100,57 @@
             </div>
           </div>
         </div>
-        <div class="panel panel-default">
+        <div class="panel panel-default {{^return_pickup_date}}hide{{/return_pickup_date}}">
           <div class="panel-heading" role="tab" id="headingTwo">
             <h4 class="panel-title">
-              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"  aria-expanded="false" aria-controls="collapseTwo">
-                Collapsible Group Item #2
+              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+               Trip on : {{return_pickup_date}}
               </a>
             </h4>
           </div>
           <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
             <div class="panel-body">
               <ul class="list-group">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Rate details for {{returnCarResult.vehicle_name}}</li>
+                <li class="list-group-item">
+                  Base distance based rate
+                  <span class="label label-default pull-right">${{returnCarResult.base_rate_item.amount}}</span>
+                </li>
+                {{#returnCarResult.optional_fixed_rate_items}}
+                  <li class="list-group-item">
+                    <input type="checkbox" id="addon-{{addon_id}}" />
+                    <label class="control-label">{{addon_name}}</label> 
+                    <span class="label label-default pull-right">${{amount}}</span>
+                  </li>
+                {{/returnCarResult.optional_fixed_rate_items}}
+                {{#returnCarResult.incremental_rate_items}}
+                  <li class="list-group-item">
+                    <select id="addon-{{returnCarResult.addon_id}}">
+                      <option>0</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                      <option>11</option>
+                      <option>12</option>
+                    </select>
+                    <label class="control-label">{{returnCarResult.addon_name}}</label> 
+                    <span class="label label-default pull-right">${{returnCarResult.incremental_amount}}</span>
+                  </li>
+                {{/returnCarResult.incremental_rate_items}}
               </ul>
             </div>
           </div>
         </div>
+        
       </div>
-      <button class="btn btn-primary pull-right">Continue</button>
+      <button class="btn btn-primary pull-right" id="continue-booking">Continue</button>
     </form>
   </div>
 </div>

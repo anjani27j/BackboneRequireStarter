@@ -3,6 +3,13 @@ var url = require('url');
 var request = require('request');
 var app = express();
 var bodyParser = require('body-parser');
+const https = require('https');
+var fs = require('fs');
+
+var httpsOptions = {
+  key: fs.readFileSync('ca-key.pem'),
+  cert: fs.readFileSync('ca-crt.pem')
+};
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -41,7 +48,7 @@ app.all('/proxy/*', function(req, res){
 		});
 	}
 });
-app.all('/fetchCarsPost', function(req, res){
+app.all('/fetchCaggrsPost', function(req, res){
 	var data=req.body;
     request.post({
 	  headers: {'content-type' : 'application/json'},
@@ -103,3 +110,4 @@ app.all('/fetchCars', function(req, res, next){
 app.use(express.static(__dirname + '/public'));
 app.listen(3000);
 console.log("App Server listening on 3000");
+//https.createServer(httpsOptions, app).listen(4433);

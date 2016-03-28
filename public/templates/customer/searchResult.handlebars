@@ -24,7 +24,10 @@
                 <li style="border: #fff solid;padding:0px;" class="list-group-item unstyled"><h4>{{vehicle_name}}</h4></li>
                 <li style="border: #fff solid;padding:0px;" class="list-group-item unstyled"><p>{{vehicle_description}}</p></li>
                 <li style="border: #fff solid;padding:0px;" class="list-group-item unstyled">
-                  <h3>${{base_rate_item.amount}}</h3> 
+                  Departure fare :<b>${{base_rate_item.amount}}</b> 
+                </li>
+                <li id="return-price-{{vehicle_type_id}}" style="border: #fff solid;padding:0px;" class="list-group-item unstyled">
+                  
                 </li>
                 <button class="btn btn-primary pull-right reserve-now" vehicle_type_id="{{vehicle_type_id}}">Reserve Now</button>
               </ul>

@@ -37,6 +37,10 @@ define([
          $( "#datepicker" ).datetimepicker({
             format:'m/d/Y H:i'
          });
+         $( "#returnDatepicker" ).datetimepicker({
+            format:'m/d/Y H:i'
+         });
+         
          this.initGoogleMap('pickupAtAuto');
          return this;
       },
