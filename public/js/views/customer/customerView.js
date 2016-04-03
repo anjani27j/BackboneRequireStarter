@@ -124,11 +124,14 @@ define([
             //type:'POST',
             //beforeSend:_.bind(this.showLoading,this),
             complete:function(model, response) {
-              console.log('completed !') ;
+              console.log('consolempleted !') ;
+              debugger;
+              window.location='http://54.208.111.147:4567/?amount='+JSON.parse(this.data).base_rate_item.amount+'00';
           },
             //data:JSON.stringify(queryData),
            success:function(model, response) {
               console.log('Successfully saved!');
+
           },
           error: function(model, error) {
               console.log(model.toJSON());
