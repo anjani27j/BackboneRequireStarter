@@ -79,6 +79,9 @@ app.all('/getAirport', function(req, res){
 	  res.send(body);
 	});
 });
+app.all('/charge', function(req, res){
+    console.log(res.toString());
+});
 app.all('/fetchCars', function(req, res, next){
 	console.log('API CALL');
 	var base_url = 'http://54.208.111.147:8080/v1/service/viewrates';

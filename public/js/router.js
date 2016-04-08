@@ -9,7 +9,8 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 			'signup' : 'showSignUp',
 			'forgotpwd' : 'showForgotPwd',
 			'myAccount' : 'showMyAccount',
-			'reservations' : 'showReservations'
+			'reservations' : 'showReservations',
+			'/charge/' : 'chargeHandler'
 		},
 		execute: function(callback, args, name) {
 			$('#sidebar-nav').hide();
@@ -36,6 +37,15 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 				var signInView = new SignInView();
 				signInView.render();
 			})
+		},
+		chargeHandler: function(data){
+			debugger;
+			$('.navbar').show();
+			require(['views/customer/paymentSuccessView'], function(PaymentSuccessView) {
+				var paymentSuccessView = new PaymentSuccessView();
+				forgotPwdView.render();
+			})
+
 		},
 		showSignUp : function() {
 			$('.navbar').hide();

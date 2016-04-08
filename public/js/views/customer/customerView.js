@@ -7,8 +7,9 @@ define([
    'models/carBooking',
    'text!templates/customer/passenger.handlebars' ,
    'text!templates/customer/carRequest.handlebars',
+   'text!templates/customer/stripForm.handlebars',
    'bootstrap'
-   ], function($,_, Backbone, Handlebars, RequestSummary,CarBooking, PassengerTemplate,CarRequestTemplate) {
+   ], function($,_, Backbone, Handlebars, RequestSummary,CarBooking, PassengerTemplate,CarRequestTemplate,StripFormTemplate) {
    var CustomerView = Backbone.View.extend({
       el: '#requestContainer',
       events: {
@@ -20,8 +21,10 @@ define([
       initialize: function() {
          this.template = Handlebars.compile(CarRequestTemplate);
          this.passengerTemplate = Handlebars.compile(PassengerTemplate);
+         this.stripFormTemplate = Handlebars.compile(StripFormTemplate);
          this.model = new RequestSummary();
          this.carBooking = new CarBooking();
+
          this.count=1;
       },
       render: function() {
@@ -94,7 +97,9 @@ define([
          //vehicle details
          this.carBooking.set('vehicle_type_id',this.car.get('vehicle_type_id'));
          //rates details
-         this.carBooking.set('base_rate_item',this.car.get('base_rate_item'));
+         var base_rate_item=this.car.get('base_rate_item');
+         base_rate_item.tax=0;
+         this.carBooking.set('base_rate_item',base_rate_item);
          var optionalFRItems = this.car.get('optional_fixed_rate_items'),
          selectedOptionalFRItems=[];
          for (var i = 0 ; i <optionalFRItems.length; i++) {
@@ -102,42 +107,54 @@ define([
                selectedOptionalFRItems.push(optionalFRItems[i]);
             }
          }
-         this.carBooking.set('optional_fixed_rate_items',selectedOptionalFRItems);
+         if(selectedOptionalFRItems.length>0){
+            this.carBooking.set('optional_fixed_rate_items',selectedOptionalFRItems);
+         }
          var incrementalRates = this.car.get('incremental_rate_items'),
          selectedIncrementalRates=[];
          for (var i = 0 ; i <incrementalRates.length; i++) {
             if(parseInt($('#addon-'+incrementalRates[i].addon_id).val())>0){
                var incrRates=incrementalRates[i];
                incrRates.number_of_items = parseInt($('#addon-'+incrementalRates[i].addon_id).val());
-               selectedIncrementalRates.push(incrementalRates[i]);
+               selectedIncrementalRates.push(incrRates);
             }
          }
-         this.carBooking.set('incremental_rate_items',selectedIncrementalRates );
+         if(selectedIncrementalRates.length>0){
+            this.carBooking.set('incremental_rate_items',selectedIncrementalRates );
+         }
          var pickup_address = this.car.get('pickup_address');
-         this.carBooking.set('pickup_address',pickup_address);
-         var dropoff_address = this.car.get('dropoff_address');
-         this.carBooking.set('dropoff_address',dropoff_address);
-         this.carBooking.set('pickup_date', this.car.get('pickup_date'));
+         this.carBooking.get('pickup_address').full_address=pickup_address.full_address;
+         this.carBooking.get('pickup_address').zip=pickup_address.zip;
 
+         var dropoff_address = this.car.get('dropoff_address');
+         //this.carBooking.get('dropoff_address').full_address=dropoff_address.full_address;
+         this.carBooking.get('dropoff_address').zip=dropoff_address.zip;
+         this.carBooking.set('pickup_date', this.car.get('pickup_date'));
          this.carBooking.save({},{
            // contentType:'application/json',
             //type:'POST',
             //beforeSend:_.bind(this.showLoading,this),
             complete:function(model, response) {
               console.log('consolempleted !') ;
-              debugger;
-              window.location='http://54.208.111.147:4567/?amount='+JSON.parse(this.data).base_rate_item.amount+'00';
+              //window.location='http://54.208.111.147:4567/?amount='+JSON.parse(this.data).base_rate_item.amount+'00';
           },
             //data:JSON.stringify(queryData),
-           success:function(model, response) {
-              console.log('Successfully saved!');
-
-          },
+          success:_.bind(this.enablePaymentOption,this),
           error: function(model, error) {
               console.log(model.toJSON());
               console.log('error.responseText');
           }
          });
+      },
+      enablePaymentOption: function(){
+         if(this.carBooking.get('reservation_code')){
+            var paymentData={
+               'final_amount_charged':this.carBooking.get('final_amount_charged'),
+               'reservation_code':this.carBooking.get('reservation_code'),
+               'currency':'USD'
+            }
+            $('#paymentOption').html(this.stripFormTemplate(paymentData));
+         }
       }
       
    });
