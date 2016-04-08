@@ -1,0 +1,12 @@
+<form action="/charge" method="POST">
+     <script
+       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+       data-key="pk_test_Z0lWKlZxQNGAzJrJa95vmlvG"
+       data-image="/img/marketplace.png"
+       data-name="Stripe.com"
+       data-description="{{reservation_code}}"
+       data-amount="{{final_amount_charged}}"
+       data-currency="{{currency}}"
+       data-locale="auto">
+     </script>
+   </form>
