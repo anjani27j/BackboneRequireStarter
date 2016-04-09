@@ -3,13 +3,13 @@ define([
    'underscore',
    'backbone',
    'handlebars',
+   'views/customer/confirmReservationView',
    'models/requestSummary',
    'models/carBooking',
    'text!templates/customer/passenger.handlebars' ,
    'text!templates/customer/carRequest.handlebars',
-   'text!templates/customer/stripForm.handlebars',
    'bootstrap'
-   ], function($,_, Backbone, Handlebars, RequestSummary,CarBooking, PassengerTemplate,CarRequestTemplate,StripFormTemplate) {
+   ], function($,_, Backbone, Handlebars, ConfirmReservationView, RequestSummary,CarBooking, PassengerTemplate,CarRequestTemplate) {
    var CustomerView = Backbone.View.extend({
       el: '#requestContainer',
       events: {
@@ -21,7 +21,6 @@ define([
       initialize: function() {
          this.template = Handlebars.compile(CarRequestTemplate);
          this.passengerTemplate = Handlebars.compile(PassengerTemplate);
-         this.stripFormTemplate = Handlebars.compile(StripFormTemplate);
          this.model = new RequestSummary();
          this.carBooking = new CarBooking();
 
@@ -75,7 +74,6 @@ define([
          }
       },
       continueCarBooking: function(event){
-         debugger;
          event.preventDefault();
          event.stopImmediatePropagation();
          //Customer details
@@ -139,22 +137,15 @@ define([
               //window.location='http://54.208.111.147:4567/?amount='+JSON.parse(this.data).base_rate_item.amount+'00';
           },
             //data:JSON.stringify(queryData),
-          success:_.bind(this.enablePaymentOption,this),
+          success:_.bind(this.confirmReservation,this),
           error: function(model, error) {
               console.log(model.toJSON());
               console.log('error.responseText');
           }
          });
       },
-      enablePaymentOption: function(){
-         if(this.carBooking.get('reservation_code')){
-            var paymentData={
-               'final_amount_charged':this.carBooking.get('final_amount_charged'),
-               'reservation_code':this.carBooking.get('reservation_code'),
-               'currency':'USD'
-            }
-            $('#paymentOption').html(this.stripFormTemplate(paymentData));
-         }
+      confirmReservation: function(){
+         this.confirmReservationView = new ConfirmReservationView(this.carBooking);
       }
       
    });

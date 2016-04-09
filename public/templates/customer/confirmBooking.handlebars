@@ -1,1 +1,64 @@
-<h1>Booking confirm</h1> 
+<div class="panel panel-default" style="margin-top:20px;">
+	<div class="panel-body small">
+    	<div class="">
+    		<h4>Reservation # {{reservation_code}}</h4>
+    	</div>
+    	<div class="">
+    		<h4>Travel Date : {{pickup_date}}</h4>
+    	</div>
+    	<div>
+    		<h4>Total Amount : {{final_amount_charged}}</h4>
+    		<div id="paymentOption"></div>
+    	</div>
+	</div>
+</div>
+
+<div class="panel panel-default" style="margin-top:20px;">
+	<div class="panel-body small">
+    	<div class="">
+    		<h4>Pickup at : {{pickup_address.full_address}}</h4>
+    	</div>
+    	<div class="">
+    		<h4>Dropoff at : {{dropoff_address.full_address}}</h4>
+    	</div>
+	</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-body small">
+    <div class="row">
+        <div class="col-md-3 col-xs-6">
+            <div class="text-muted small">Customer name</div>
+            <div>{{customer.first_name}} {{customer.middle_name}} {{customer.last_name}}</div>
+        </div>
+        <div class="col-md-3 col-xs-6">
+            <div class="text-muted small">Phone</div>
+            <div>{{customer.contact_number}}</div>
+        </div>
+        <div class="col-md-3 col-xs-6">
+            <div class="text-muted small">Email</div>
+            <div>{{customer.email}}</div>
+        </div>
+    </div>
+    <div class="row m-t-sm">
+        <div class="col-md-3 col-xs-6">
+            <div class="text-muted small">Service</div>
+            <div>Airport Roundtrip (To Airport 1st)</div>
+        </div>
+        <div class="col-md-3 col-xs-6">
+            <div class="text-muted small">Vehicle type</div>
+            <div>SEDAN 1 to 2 Passenger</div>
+        </div>
+        <div class="col-md-3 col-xs-6">
+            <div class="text-muted small">Distance</div>
+            <div>70.00 miles</div>
+        </div>
+        <div class="col-md-3 col-xs-6">
+            <div class="text-muted small">Flight #</div>
+            <div>
+                <small><i class="icon-plane"></i> (UA) United Airlines 7988</small>
+            </div>
+        </div>
+    </div>
+</div>        
+</div>
