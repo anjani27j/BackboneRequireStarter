@@ -35,10 +35,12 @@ define([
          this.$el.addClass('main-container-top-margin');
          this.$el.html(this.template);
          $( "#datepicker" ).datetimepicker({
-            format:'m/d/Y H:i'
+            minDate: 0,
+            format:'m/d/Y g:i A' 
          });
          $( "#returnDatepicker" ).datetimepicker({
-            format:'m/d/Y H:i'
+            minDate: 0,
+            format:'m/d/Y g:i A'
          });
          
          this.initGoogleMap('pickupAtAuto');

@@ -8,7 +8,8 @@ define([
    'models/carBooking',
    'text!templates/customer/passenger.handlebars' ,
    'text!templates/customer/carRequest.handlebars',
-   'bootstrap'
+   'bootstrap',
+   'jquery.validate'
    ], function($,_, Backbone, Handlebars, ConfirmReservationView, RequestSummary,CarBooking, PassengerTemplate,CarRequestTemplate) {
    var CustomerView = Backbone.View.extend({
       el: '#requestContainer',
@@ -23,7 +24,14 @@ define([
          this.passengerTemplate = Handlebars.compile(PassengerTemplate);
          this.model = new RequestSummary();
          this.carBooking = new CarBooking();
-
+         $.validator.addMethod( "phoneUS", function( phone_number, element ) {
+            phone_number = phone_number.replace( /\s+/g, "" );
+            return this.optional( element ) || phone_number.length > 9 &&
+               phone_number.match( /^(\+?1-?)?(\([2-9]([02-9]\d|1[02-9])\)|[2-9]([02-9]\d|1[02-9]))-?[2-9]([02-9]\d|1[02-9])-?\d{4}$/ );
+         }, "Please specify a valid phone number" );
+         /*$.validator.addMethod( "fname", function( fname, element ) {
+            return (fname.length>2?true?false);
+         }, "" );*/
          this.count=1;
       },
       render: function() {
@@ -41,6 +49,32 @@ define([
          $('#car-details-breadcrumb').addClass('btn-primary');
          $('#request-details-breadcrumb').removeClass('btn-info');
          $('#request-details-breadcrumb').addClass('btn-success');
+
+         $('#customer-form').validate({
+             rules: {
+                 custFName:{
+                     minlength: 2,
+                     required: true
+                 },
+                 custEmail: {
+                     required: true,
+                     email: true
+                 },
+                 custPhone: {
+                     required: true,
+                     phoneUS: true
+                 }
+             },
+             highlight: function (element) {
+                 $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+                 //$('#custEmail').parent().parent().addClass('has-error')
+             },
+             success: function (element) {
+                 element.text('').addClass('valid').closest('.form-group').removeClass('has-error').addClass('has-success');
+                     debugger;
+             },
+             errorClass:'error-message'
+         });
       },
       addPassenger: function(event){
          event.preventDefault();
@@ -65,18 +99,19 @@ define([
          $('#passenger-container').html('');
       },
       changePassengerType: function(event){
+         debugger;
          this.resetPassenger();
          if(event.currentTarget.id.split('-')[2]==='1'){
             $('#add-passanger-btn').css('display','none');
          }else{
             $('#add-passanger-btn').css('display','');
-            this.addPassenger();
+            $('#add-passanger-btn').trigger('click');
          }
       },
       continueCarBooking: function(event){
          event.preventDefault();
          event.stopImmediatePropagation();
-         //Customer details
+         //Customer  & passenger details
          var customer=this.carBooking.get('customer'),
          pgrTypeId,
          passengerDetails=this.carBooking.get('passenger');
@@ -90,6 +125,8 @@ define([
             passengerDetails.push(customer);
             this.carBooking.set('passenger',passengerDetails);
             customer.is_passenger = true;
+         }else{
+
          }
          this.carBooking.set('customer',customer);
          //vehicle details
@@ -98,6 +135,7 @@ define([
          var base_rate_item=this.car.get('base_rate_item');
          base_rate_item.tax=0;
          this.carBooking.set('base_rate_item',base_rate_item);
+         //optional_fixed_rate_items
          var optionalFRItems = this.car.get('optional_fixed_rate_items'),
          selectedOptionalFRItems=[];
          for (var i = 0 ; i <optionalFRItems.length; i++) {
@@ -108,6 +146,7 @@ define([
          if(selectedOptionalFRItems.length>0){
             this.carBooking.set('optional_fixed_rate_items',selectedOptionalFRItems);
          }
+         //incremental_rate_items
          var incrementalRates = this.car.get('incremental_rate_items'),
          selectedIncrementalRates=[];
          for (var i = 0 ; i <incrementalRates.length; i++) {
@@ -120,28 +159,25 @@ define([
          if(selectedIncrementalRates.length>0){
             this.carBooking.set('incremental_rate_items',selectedIncrementalRates );
          }
+         //pickup_address
          var pickup_address = this.car.get('pickup_address');
          this.carBooking.get('pickup_address').full_address=pickup_address.full_address;
          this.carBooking.get('pickup_address').zip=pickup_address.zip;
-
+         //dropoff_address
          var dropoff_address = this.car.get('dropoff_address');
          //this.carBooking.get('dropoff_address').full_address=dropoff_address.full_address;
          this.carBooking.get('dropoff_address').zip=dropoff_address.zip;
+         //pickup_date
          this.carBooking.set('pickup_date', this.car.get('pickup_date'));
+         // Save booking
          this.carBooking.save({},{
-           // contentType:'application/json',
-            //type:'POST',
-            //beforeSend:_.bind(this.showLoading,this),
             complete:function(model, response) {
               console.log('consolempleted !') ;
-              //window.location='http://54.208.111.147:4567/?amount='+JSON.parse(this.data).base_rate_item.amount+'00';
-          },
-            //data:JSON.stringify(queryData),
-          success:_.bind(this.confirmReservation,this),
-          error: function(model, error) {
-              console.log(model.toJSON());
+            },
+            success:_.bind(this.confirmReservation,this),
+            error: function(model, error) {
               console.log('error.responseText');
-          }
+            }
          });
       },
       confirmReservation: function(){

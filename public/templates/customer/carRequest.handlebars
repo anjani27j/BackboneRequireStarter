@@ -1,40 +1,28 @@
 <div class="panel panel-default" style="background:#fff">
   <div class="panel-body">
-    <form class="form-horizontal">
+    <form class="form-horizontal" id="customer-form" >
       <div class="form-group">
-        <label for="cusFtName form-control" class="col-sm-3 control-label">Customer Name</label>
+        <label for="cusFtName form-control" class="col-sm-3 control-label">Customer Name<b style="color:#a94442;">*</b></label>
         <div class="col-sm-9">
-          <input id="custFName" placeholder="First Name" class="form-control col-sm-6" type="text" style="
+          <input id="custFName" name="custFName" placeholder="First Name" class="form-control col-sm-6" type="text" style="
     width: 45%;"/>
           <input id="custLName" placeholder="Last Name" class="form-control col-sm-6" type="text" style="
     width: 45%; margin-left: 10px;"/>
         </div>
       </div>
       <div class="form-group">
-        <label for="custEmail" class="col-sm-3 control-label">Customer Email</label>
+        <label for="custEmail" class="col-sm-3 control-label">Customer Email <b style="color:#a94442;">*</b></label>
         <div class="col-sm-9">
           <input id="custEmail" type="email" placeholder="Email" class="form-control"/>
         </div>
       </div>
       <div class="form-group">
-        <label for="custPhone" class="col-sm-3 control-label">Customer Phone</label>
+        <label for="custPhone" class="col-sm-3 control-label">Customer Phone <b style="color:#a94442;">*</b></label>
         <div class="col-sm-9">
-          <input id="custPhone" placeholder="Phone Number" class="form-control"/>
+          <input id="custPhone" name="custPhone" placeholder="Phone Number" class="form-control"/>
         </div>
       </div>
-      <div class="form-group" style="padding-left: 42px;">
-        <label class="radio-inline ">
-          <input type="radio" class="passenger-type" name="inlineRadioOptions" id="passenger-type-1" value="option1" checked="checked"> I am the passenger
-        </label>
-        <label class="radio-inline">
-          <input type="radio" class="passenger-type" name="inlineRadioOptions" id="passenger-type-2" value="option2"> I am not the passenger
-        </label>
-        <label class="radio-inline ">
-          <input type="radio" class="passenger-type" name="inlineRadioOptions" id="passenger-type-3" value="option3"> Add other passengers
-        </label>
-      </div>
-      <div>
-        <div class="form-group">
+      <div class="form-group">
           <label for="airline" class="col-sm-3 control-label">Flight Info</label>
           <div class="col-sm-9">
             <input id="airline" placeholder="Airline" class="form-control col-sm-6" type="text" style="width: 45%;"/>
@@ -45,9 +33,19 @@
           <label for="specialNote" class="col-sm-3 control-label">Special Notes</label>
           <div class="col-sm-9">
             <textarea  id="specialNote" placeholder="Additional Info" class="form-control col-sm-12" type="text" style="width: 45%;"></textarea>
-            <button id="add-passanger-btn" class="btn btn-primary" style="float: right;margin-top: 20px; display:none;">Add Passenger</button>
+            
           </div>
         </div>
+      <div class="form-group" style="padding-left: 42px;">
+        <label class="radio-inline ">
+          <input type="radio" class="passenger-type" name="inlineRadioOptions" id="passenger-type-1" value="option1" checked="checked"> I am the passenger
+        </label>
+        <label class="radio-inline">
+          <input type="radio" class="passenger-type" name="inlineRadioOptions" id="passenger-type-2" value="option2"> I am not the passenger
+        </label>
+        <label class="radio-inline hide">
+          <button id="add-passanger-btn" class="btn btn-primary" style="float: right;margin-top: 20px; display:none;">Add Passenger</button>
+        </label>
       </div>
       <div id="passenger-container">
       </div>
@@ -149,7 +147,7 @@
           </div>
         </div>
       </div>
-      <button class="btn btn-primary pull-right" id="continue-booking">Save Reservation</button>
+      <button class="btn btn-primary pull-right" id="continue-booking">Confirm Reservation</button>
     </form>
   </div>
 </div>

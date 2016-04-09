@@ -154,7 +154,7 @@ a {
   width: 90%;
 }
 .main-container-top-margin{
-  margin-top: 62px;
+  margin-top: 20px;
 }
 .panel-default {
     border-color: #ddd;
@@ -235,4 +235,7 @@ a {
 
 .noUnderline a:hover{
     text-decoration: none;
+}
+.error-message{
+  color: #a94442;
 }

@@ -1,6 +1,7 @@
 require.config({
 	paths : {
 		jquery : '../bower_components/jquery/dist/jquery.min',
+		'jquery.validate' : '../bower_components/jquery-validation/dist/jquery.validate',
 		'jquery-ui' : '../bower_components/jquery-ui/jquery-ui.min',
 		underscore : '../bower_components/underscore/underscore-min',
 		backbone : '../bower_components/backbone/backbone',
