@@ -5,13 +5,37 @@ var app = express();
 var bodyParser = require('body-parser');
 const https = require('https');
 var fs = require('fs');
+var stripe = require("stripe")("sk_test_AbFTeG4PHci423Skt2N85eSR");
+var exphbs  = require('express-handlebars');
+//var cons = require('consolidate'),
 
-var httpsOptions = {
-  key: fs.readFileSync('ca-key.pem'),
-  cert: fs.readFileSync('ca-crt.pem')
-};
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }));
+app.all('/charge', function(req, res){
+    console.log(req.body.stripeToken);
+    var stripeToken = req.body.stripeToken;
+    var stripeEmail = req.body.stripeEmail;
+    var charge = stripe.charges.create({
+	  amount: 12300, // amount in cents, again
+	  currency: "usd",
+	  source: stripeToken,
+	  description: "Example charge"+stripeEmail
+	 // metadata: {'order_id': '6735'}
+	}, function(err, charge) {
+	  if (err && err.type === 'StripeCardError') {
+	    // The card has been declined
+	    res.send(err);
+	  }else if(charge && charge.status==='paid'){
+ 		//res.send(charge);
+ 		res.setHeader("Content-Type", "text/html");
+ 		res.render('main',charge);
+	  }
+	});
+	
+});
 
 app.all('/signUp', function(req, res){
 	var data=req.body;
@@ -79,9 +103,7 @@ app.all('/getAirport', function(req, res){
 	  res.send(body);
 	});
 });
-app.all('/charge', function(req, res){
-    console.log(res.toString());
-});
+
 app.all('/fetchCars', function(req, res, next){
 	console.log('API CALL');
 	var base_url = 'http://54.208.111.147:8080/v1/service/viewrates';

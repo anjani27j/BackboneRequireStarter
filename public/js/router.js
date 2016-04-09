@@ -9,8 +9,8 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 			'signup' : 'showSignUp',
 			'forgotpwd' : 'showForgotPwd',
 			'myAccount' : 'showMyAccount',
-			'reservations' : 'showReservations',
-			'/charge/' : 'chargeHandler'
+			'reservations' : 'showReservations'
+			//'/charge/' : 'chargeHandler'
 		},
 		execute: function(callback, args, name) {
 			$('#sidebar-nav').hide();

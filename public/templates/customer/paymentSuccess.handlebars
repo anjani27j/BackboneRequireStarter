@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Car Reservation System</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/bower_components/datetimepicker/jquery.datetimepicker.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+
+ </head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" style="display:none;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">CT Ride</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Call us: <i class="icon-phone"></i> 203-864-3190 </a></li>
+        <li><a href="mailto:biplob.anwar@gmail.com">Email us: <i class="icon-envelope"></i> biplob.anwar@gmail.com</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="navLogged"><a href="#signup">Sign Up</a></li>
+        <li class="navLogged"><a href="#signin">Sign In</a></li>
+        <li class="navLogged dropdown">
+          <a id="loggedinUsername" class="dropdown-toggle" data-toggle="dropdown" href="#">anurag sharma<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="changePassword">Change my password</a>
+            </li>
+            <li>
+              <a href="#log-out" id="logOut"><i class="icon-off"></i> Logout</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- sidebar start -->
+<div id="sidebar-nav" class="admin-sidebar1">
+</div>
+<!-- sidebar end -->
+<div class="container dashboard" id="main-container"></div>
+<script data-main="/js/main" src="bower_components/requirejs/require.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC1gYo8w7YwaDVlrWkmh_Wc52yMym_tjM&libraries=places&sensor=true"></script>
+</body>
+</html>
