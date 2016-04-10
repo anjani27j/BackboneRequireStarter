@@ -112,7 +112,6 @@ define([
       },
       'returnCarsRender':function(result){
          _.each(this.returnCollection.models, function(car){
-            debugger;
             $('#return-price-'+car.get('vehicle_type_id')).html('Return fare :<b> $'+car.get('base_rate_item').amount+'</b>');
          });
       },

@@ -71,7 +71,6 @@ define([
              },
              success: function (element) {
                  element.text('').addClass('valid').closest('.form-group').removeClass('has-error').addClass('has-success');
-                     debugger;
              },
              errorClass:'error-message'
          });

@@ -28,6 +28,7 @@ define([
                self.updateLocations();
             }
          });
+         this.selctedPlaces={};
       },
       render: function() {
          this.$el.removeClass('dashboard');
@@ -157,27 +158,10 @@ define([
          }
       },
       newCarSearchHandler : function(event){
-         /*var query='';
-         query+='serviceType='+$('#selectService')[0].selectedOptions[0].value;
-         query+='&numOfPassenger'+$('#passengersCount')[0].selectedOptions[0].value;
-         query+='&pickup_date+'+$('#datepicker').text();
-         if($('.pickup-auto').hasClass('hide')){
-            query+='&pickup_location'+$('#pickupAtFixed').text();
-         }else{
-            query+='&pickup_location'+$('#pickupAtAuto').val();
-         }
-         
-         if($('.dropoff-auto').hasClass('hide')){
-            query+='&dropoff_location'+$('#dropoffAtFixed').text();
-         }else{
-            query+='&dropoff_location'+$('#dropoffAtAuto').val();
-         }
-         if($($('#selectService')[0].selectedOptions).attr('type')==='twoway'){
-         }*/
          window.location='#searchResult';
-        // $('#newCarSearch').click();
       },
       'initGoogleMap' : function(selector){
+         this.selector = selector;
          if(!!navigator.geolocation) {
             var map,
             self = this;
@@ -185,6 +169,8 @@ define([
                zoom: 15,
                mapTypeId: google.maps.MapTypeId.ROADMAP
             };
+
+
             map = new google.maps.Map(document.getElementById('map-container'), mapOptions);
             var input = document.getElementById(selector);
             var searchBox = new google.maps.places.SearchBox(input);
@@ -198,12 +184,12 @@ define([
             // [START region_getplaces]
             // Listen for the event fired when the user selects a prediction and retrieve
             // more details for that place.
-            searchBox.addListener('places_changed', function() {
+            searchBox.addListener('places_changed', function(eve) {
                var places = searchBox.getPlaces();
                if (places.length == 0) {
                   return;
                }
-               self.selctedPlace=places;
+               self.selctedPlaces[self.selector]=places[0];
                // Clear out the old markers.
                markers.forEach(function(marker) {
                  marker.setMap(null);

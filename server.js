@@ -19,11 +19,11 @@ app.all('/charge', function(req, res){
     var stripeToken = req.body.stripeToken;
     var stripeEmail = req.body.stripeEmail;
     var charge = stripe.charges.create({
-	  amount: 12300, // amount in cents, again
+	  amount: req.query.amount, // amount in cents, again
 	  currency: "usd",
 	  source: stripeToken,
-	  description: "Example charge"+stripeEmail
-	 // metadata: {'order_id': '6735'}
+	  description: "reservations:"+req.query.resv
+	  //metadata: {'order_id': req.query.resv}	
 	}, function(err, charge) {
 	  if (err && err.type === 'StripeCardError') {
 	    // The card has been declined
@@ -32,6 +32,12 @@ app.all('/charge', function(req, res){
  		//res.send(charge);
  		res.setHeader("Content-Type", "text/html");
  		res.render('main',charge);
+
+ 		/*res.send({
+	      retStatus : charge.status,
+	      redirectTo: '/#signin',
+	      msg : 'Just go there please' // this should help
+	    });*/
 	  }
 	});
 	
