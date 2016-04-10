@@ -11,8 +11,15 @@ define([
       },
       initialize: function(data) {
          this.jsonData = JSON.parse('{"' + decodeURI(data).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}')
-         
-         //console.log(jsonData);
+         Backbone.history.navigate('paymentstatus', {trigger:false});
+         $.ajax({
+            url: '/proxy/v1/reservation/'+this.jsonData.desc,
+            type: 'PUT',
+            data: {"transaction_id":this.jsonData.pay_ref_no, "amount_charged":this.jsonData.amount/100},
+            success: function(data) {
+              //alert('Load was performed.');
+            }
+         });
          this.template = Handlebars.compile(paymentTemplate);
       },
       render: function() {

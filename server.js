@@ -15,14 +15,15 @@ app.set('view engine', 'handlebars');
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 app.all('/charge', function(req, res){
-    console.log(req.body.stripeToken);
+    // console.log('CHARGE REQ BODY::'+req.body.stripeToken);
+    // console.log('REQ:::'+req);
     var stripeToken = req.body.stripeToken;
     var stripeEmail = req.body.stripeEmail;
     var charge = stripe.charges.create({
 	  amount: req.query.amount, // amount in cents, again
 	  currency: "usd",
 	  source: stripeToken,
-	  description: "reservations:"+req.query.resv
+	  description: req.query.resv
 	  //metadata: {'order_id': req.query.resv}	
 	}, function(err, charge) {
 	  if (err && err.type === 'StripeCardError') {
@@ -69,7 +70,22 @@ app.all('/proxy/*', function(req, res){
 		});
 	}else if(req.method  ==='POST'){
 		var data=req.body;
+		// console.log(data);
+		// console.log(JSON.stringify(data));
+		// console.log(base_url);
 	    request.post({
+		  headers: {'content-type' : 'application/json'},
+		  url:     base_url,
+		  body:    JSON.stringify(data)
+		}, function(error, response, body){
+		   res.send(body);
+		});
+	}else if(req.method === 'PUT'){
+		var data=req.body;
+		console.log(data);
+		console.log(JSON.stringify(data));
+		console.log(base_url);
+	    request.put({
 		  headers: {'content-type' : 'application/json'},
 		  url:     base_url,
 		  body:    JSON.stringify(data)
