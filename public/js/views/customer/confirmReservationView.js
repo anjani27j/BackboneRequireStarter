@@ -25,11 +25,10 @@ define([
          $('#car-details-breadcrumb').addClass('btn-primary');
          $('#request-details-breadcrumb').removeClass('btn-info');
          $('#request-details-breadcrumb').addClass('btn-success');
-         debugger;
          this.$el.html(this.template(this.model.toJSON()));
          if(this.model.toJSON().reservation_code){
             var paymentData={
-               'final_amount_charged':(this.model.toJSON().final_amount_charged * 100),
+               'final_amount_charged':(this.model.toJSON().invoice_total * 100),
                'reservation_code':this.model.toJSON().reservation_code,
                'currency':'USD'
             }
